@@ -1,4 +1,5 @@
-import React, {Component, ChangeEvent} from "react";
+import React, {Component} from "react";
+import type { ChangeEvent } from "react";
 
 interface Props {
   onSearch: (pocemonName: string) => void
