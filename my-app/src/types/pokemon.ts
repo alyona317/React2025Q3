@@ -1,3 +1,12 @@
+export interface PokemonAbilityReference {
+  ability: {
+    name: string;
+    url: string;
+  };
+  is_hidden: boolean;
+  slot: number;
+}
+
 export interface AbilityEntry {
   name: string;
   effect_entries: {
@@ -6,7 +15,7 @@ export interface AbilityEntry {
     language: {
       name: string;
     };
-  };
+  }[];
 }
 
 export interface State {
@@ -14,4 +23,13 @@ export interface State {
   abilities: AbilityEntry[];
   loading: boolean;
   error: string | null;
+}
+
+export interface Props {
+  pokemonName: string;
+  children: (props: {
+    abilities: AbilityEntry[];
+    loading: boolean;
+    error: string | null;
+  }) => React.ReactNode;
 }

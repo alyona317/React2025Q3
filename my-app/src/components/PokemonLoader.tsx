@@ -1,0 +1,49 @@
+import { Component } from 'react';
+import type { AbilityEntry, State, Props, PokemonAbilityReference } from '../types/pokemon';
+
+export class PokemonLoader extends Component<Props, State> {
+  state: State = {
+    pokemonName: '',
+    abilities: [],
+    loading: false,
+    error: null,
+  };
+
+  
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.pokemonName !== this.props.pokemonName && this.props.pokemonName) {
+      this.fetchPokemonAbilities(this.props.pokemonName);
+    }
+  }
+  async fetchPokemonAbilities(name:string){
+    this.setState({loading: true, error: null, abilities: []})
+    try {
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      if (!res.ok) throw new Error('Покемон не найден');
+
+      const data = await res.json();
+      const abilityRequests = data.abilities.map(
+        async (entry: PokemonAbilityReference) => {
+          const res = await fetch(entry.ability.url);
+          return await res.json();
+        }
+      );
+      const abilities: AbilityEntry[] = await Promise.all(abilityRequests);
+
+      this.setState({ abilities, loading: false });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+          this.setState({ error: error.message, loading: false });
+        } else {
+          this.setState({ error: 'Неизвестная ошибка', loading: false });
+        }
+    }
+  }
+  render() {
+    return this.props.children({
+      abilities: this.state.abilities,
+      loading: this.state.loading,
+      error: this.state.error,
+    });
+  }
+}
