@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import type { AbilityEntry, State, Props, PokemonAbilityReference } from '../types/pokemon';
+import type {
+  AbilityEntry,
+  State,
+  Props,
+  PokemonAbilityReference,
+} from '../types/pokemon';
 
 export class PokemonLoader extends Component<Props, State> {
   state: State = {
@@ -9,19 +14,22 @@ export class PokemonLoader extends Component<Props, State> {
     error: null,
   };
 
-  
   componentDidUpdate(prevProps: Props) {
-    if (prevProps.pokemonName !== this.props.pokemonName && this.props.pokemonName) {
+    if (
+      prevProps.pokemonName !== this.props.pokemonName &&
+      this.props.pokemonName
+    ) {
       this.fetchPokemonAbilities(this.props.pokemonName);
     }
   }
-  async fetchPokemonAbilities(name:string){
-    this.setState({loading: true, error: null, abilities: []})
+  async fetchPokemonAbilities(name: string) {
+    this.setState({ loading: true, error: null, abilities: [], pokemonName: '' });
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
       if (!res.ok) throw new Error('Покемон не найден');
 
       const data = await res.json();
+      const pokemonName: string = data.name;
       const abilityRequests = data.abilities.map(
         async (entry: PokemonAbilityReference) => {
           const res = await fetch(entry.ability.url);
@@ -30,13 +38,13 @@ export class PokemonLoader extends Component<Props, State> {
       );
       const abilities: AbilityEntry[] = await Promise.all(abilityRequests);
 
-      this.setState({ abilities, loading: false });
+      this.setState({ abilities, loading: false, pokemonName });
     } catch (error: unknown) {
-        if (error instanceof Error) {
-          this.setState({ error: error.message, loading: false });
-        } else {
-          this.setState({ error: 'Неизвестная ошибка', loading: false });
-        }
+      if (error instanceof Error) {
+        this.setState({ error: error.message, loading: false });
+      } else {
+        this.setState({ error: 'Неизвестная ошибка', loading: false });
+      }
     }
   }
   render() {
@@ -44,6 +52,7 @@ export class PokemonLoader extends Component<Props, State> {
       abilities: this.state.abilities,
       loading: this.state.loading,
       error: this.state.error,
+      pokemonName: this.state.pokemonName
     });
   }
 }

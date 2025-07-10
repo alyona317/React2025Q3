@@ -31,5 +31,6 @@ export interface Props {
     abilities: AbilityEntry[];
     loading: boolean;
     error: string | null;
+    pokemonName: string;
   }) => React.ReactNode;
 }
