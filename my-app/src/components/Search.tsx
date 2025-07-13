@@ -26,14 +26,14 @@ export class Search extends Component<Props, State> {
           type="text"
           value={this.state.inputValue}
           onChange={this.handleChange}
-          placeholder="Введите имя покемона"
+          placeholder="Enter pokemon's name"
           style={{ padding: '0.5rem', width: 200 }}
         />
         <button
           onClick={this.handleClick}
           style={{ marginLeft: 10, padding: '0.5rem 1rem' }}
         >
-          Поиск
+          Search
         </button>
       </div>
     );

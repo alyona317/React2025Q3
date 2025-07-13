@@ -16,8 +16,7 @@ export const ShowResult: React.FC<Props> = ({
 }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
-  if (abilities.length === 0 )
-    return <p>Введите имя покемона и нажмите "Поиск".</p>;
+  if (abilities.length === 0) return <p>Enter the name of pokemon</p>;
   return (
     <div>
       <ul>
@@ -28,8 +27,8 @@ export const ShowResult: React.FC<Props> = ({
           );
           return (
             <li key={ability.name}>
-              <strong>{ability.name}</strong>:{' '}
-              {effect?.short_effect || effect?.effect || 'Описание недоступно'}
+              <strong>{ability.name}</strong>{' '}
+              {effect?.short_effect || effect?.effect || ''}
             </li>
           );
         })}

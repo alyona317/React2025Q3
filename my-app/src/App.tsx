@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Search } from './components/Search';
 import { ShowResult } from './components/ShowResult';
 import { PokemonLoader } from './components/PokemonLoader';
@@ -25,7 +25,7 @@ export class App extends Component<object, State> {
   render() {
     return (
       <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'Arial' }}>
-        <h2>Поиск покемона</h2>
+        <h2>Search pokemon</h2>
         <Search onSearch={this.handleSearch} />
         <PokemonLoader pokemonName={this.state.pokemonName}>
           {({ abilities, loading, error, pokemonName }) => (

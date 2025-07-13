@@ -22,8 +22,44 @@ export class PokemonLoader extends Component<Props, State> {
       this.fetchPokemonAbilities(this.props.pokemonName);
     }
   }
+  async fetchAllPokemon() {
+    this.setState({
+      loading: true,
+      error: null,
+      abilities: [],
+      pokemonName: '',
+    });
+
+    try {
+      const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
+      const data = await res.json();
+      const abilities: AbilityEntry[] = data.results.map(
+        (p: { name: string }) => ({
+          name: p.name,
+          effect_entries: [],
+        })
+      );
+
+      this.setState({
+        abilities,
+        loading: false,
+        pokemonName: 'All pokemons',
+      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        this.setState({ error: error.message, loading: false });
+      } else {
+        this.setState({ error: 'Неизвестная ошибка', loading: false });
+      }
+    }
+  }
   async fetchPokemonAbilities(name: string) {
-    this.setState({ loading: true, error: null, abilities: [], pokemonName: '' });
+    this.setState({
+      loading: true,
+      error: null,
+      abilities: [],
+      pokemonName: '',
+    });
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
       if (!res.ok) throw new Error('Покемон не найден');
@@ -47,12 +83,19 @@ export class PokemonLoader extends Component<Props, State> {
       }
     }
   }
+  componentDidMount() {
+    if (this.props.pokemonName) {
+      this.fetchPokemonAbilities(this.props.pokemonName);
+    } else {
+      this.fetchAllPokemon();
+    }
+  }
   render() {
     return this.props.children({
       abilities: this.state.abilities,
       loading: this.state.loading,
       error: this.state.error,
-      pokemonName: this.state.pokemonName
+      pokemonName: this.state.pokemonName,
     });
   }
 }
