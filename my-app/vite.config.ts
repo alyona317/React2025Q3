@@ -12,11 +12,11 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
-      thresholds:{
+      thresholds: {
         lines: 50,
         functions: 50,
         branches: 50,
-        statements: 80
+        statements: 80,
       },
       include: ['src/**/*.{js,jsx,ts,tsx}'],
       exclude: [],
