@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { PokemonLoader } from '../components/PokemonLoader';
 import { vi } from 'vitest';
@@ -10,7 +10,7 @@ describe('PokemonLoader', () => {
   });
 
   afterEach(() => {
-    vi.restoreAllMocks(); // очищаем между тестами
+    vi.restoreAllMocks();
   });
 
   it('calls API with correct pokemon name', async () => {
@@ -57,7 +57,7 @@ describe('PokemonLoader', () => {
 
     render(
       <PokemonLoader pokemonName="">
-        {({ abilities, loading, error, pokemonName }) => (
+        {({ loading, pokemonName }) => (
           <div>
             {loading && <p>Loading...</p>}
             {pokemonName && <p>{pokemonName}</p>}
@@ -66,12 +66,14 @@ describe('PokemonLoader', () => {
       </PokemonLoader>
     );
 
-    expect(fetch).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon?limit=1000');
+    expect(fetch).toHaveBeenCalledWith(
+      'https://pokeapi.co/api/v2/pokemon?limit=1000'
+    );
 
     await waitFor(() => {
       expect(screen.getByText('All pokemons')).toBeInTheDocument();
     });
-  })
+  });
   it('handles API error correctly', async () => {
     (global.fetch as vi.Mock).mockResolvedValueOnce({
       ok: false,
@@ -106,7 +108,6 @@ describe('PokemonLoader', () => {
         },
       ],
     };
-
     const mockAbilityResponse = {
       name: 'static',
       effect_entries: [
@@ -116,7 +117,6 @@ describe('PokemonLoader', () => {
         },
       ],
     };
-
     (global.fetch as vi.Mock)
       .mockResolvedValueOnce({
         ok: true,
@@ -147,19 +147,4 @@ describe('PokemonLoader', () => {
       expect(screen.getByText('static')).toBeInTheDocument();
     });
   });
-
 });
-
-
-
-
-
-// Управляет загрузкой состояний во время вызовов API
-// Обновляет состояние компонента на основе ответов API
-// Обрабатывает успешные ответы API
-
-
-
-// Обрабатывает поисковый запрос из localStorage при первоначальной загрузке
-
-// Перезаписывает существующее значение localStorage при выполнении нового поиска.
