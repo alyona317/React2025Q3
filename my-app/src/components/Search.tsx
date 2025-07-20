@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import type { ChangeEvent } from 'react';
 
 interface Props {
-  onSearch: (pocemonName: string) => void;
+  onSearch: (pokemonName: string) => void;
 }
 
 interface State {
