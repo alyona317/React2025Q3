@@ -6,6 +6,7 @@
 }
 
 
+
 /* About */
 .about{
   margin: 100px 0 150px  0;
@@ -61,4 +62,53 @@
       background-color: rgb(234, 255, 172);
         cursor: pointer;
 
+}
+
+/* Error */
+.error__container{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  align-items: center;
+  gap: 20px
+}
+
+.error_title{
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 70px;
+  letter-spacing: -1px;
+  color: black;
+  transition: all 0.1s ease-in-out;
+}
+.error_massage{
+  font-size: 40px;
+  letter-spacing: -1px;
+  color: black;
+}
+
+/* Navigation */
+.nav{
+  width: 100%;
+  max-width: $content-width;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  z-index: 1000;
+  padding-top: 30px;
+}
+.nav__logo{
+  width: 5em;
+  transition: transform 0.3s ease;
+  margin-right: 170px;
+}
+.nav__logo:hover{
+  transform: scale(1.1);
+}
+
+.nav__List{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
