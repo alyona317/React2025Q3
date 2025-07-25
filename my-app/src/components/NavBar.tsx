@@ -15,7 +15,7 @@ export const Navbar: React.FC = () => {
           Style={'width: 50px'}/>
         </Link>
         <div className="nav__List">
-          <Link to="/">Search</Link>
+          <Link to="/search">Search</Link>
           <Link to="/about">About</Link>
         </div>
       </nav>

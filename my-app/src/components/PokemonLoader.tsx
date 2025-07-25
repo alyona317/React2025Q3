@@ -1,101 +1,101 @@
-import { Component } from 'react';
+import { useCallback, useEffect, useState, type JSX } from 'react';
 import type {
+  PokemonInfo,
+  NamedAPIResource,
+  PropsWithChildren,
+  TypeEntry,
   AbilityEntry,
-  State,
-  Props,
-  PokemonAbilityReference,
 } from '../types/pokemon';
 
-export class PokemonLoader extends Component<Props, State> {
-  state: State = {
-    pokemonName: '',
-    abilities: [],
-    loading: false,
-    error: null,
-  };
 
-  componentDidUpdate(prevProps: Props) {
-    if (
-      prevProps.pokemonName !== this.props.pokemonName &&
-      this.props.pokemonName
-    ) {
-      this.fetchPokemonAbilities(this.props.pokemonName);
+interface PokemonLoaderProps {
+  pokemonName: string;
+  children: (args: {
+    loading: boolean;
+    error: string | null;
+    pokemonList?: NamedAPIResource[];
+    info?: PokemonInfo;
+  }) => JSX.Element;
+  searchTerm: string;
+}
+
+export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
+  pokemonName,
+  children,
+  searchTerm,
+}) => {
+  const [pokemonList, setPokemonList] = useState<
+    NamedAPIResource[] | undefined
+  >(undefined);
+  const [info, setInfo] = useState<PokemonInfo>();
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (searchTerm.trim()) {
+      fetchPokemon(searchTerm.toLowerCase());
+    } else {
+      fetchList();
     }
-  }
-  async fetchAllPokemon() {
-    this.setState({
-      loading: true,
-      error: null,
-      abilities: [],
-      pokemonName: '',
-    });
+  }, [searchTerm]);
+
+  const fetchList = useCallback(async () => {
+    setLoading(true);
+    setError(null);
 
     try {
       const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
-      const data = await res.json();
-      const abilities: AbilityEntry[] = data.results.map(
-        (p: { name: string }) => ({
-          name: p.name,
-          effect_entries: [],
-        })
-      );
+      if (!res.ok) throw new Error('Покемон не найден');
 
-      this.setState({
-        abilities,
-        loading: false,
-        pokemonName: 'All pokemons',
-      });
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        this.setState({ error: error.message, loading: false });
-      } else {
-        this.setState({ error: 'Неизвестная ошибка', loading: false });
-      }
+      const data = await res.json();
+      setPokemonList(data.results);
+    } catch {
+      setError('Ошибка загрузки покемона');
+    } finally {
+      setLoading(false);
     }
-  }
-  async fetchPokemonAbilities(name: string) {
-    this.setState({
-      loading: true,
-      error: null,
-      abilities: [],
-      pokemonName: '',
-    });
+  }, []);
+
+  const fetchPokemon = useCallback(async (name: string) => {
+    setLoading(true);
+    setError(null);
+
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
       if (!res.ok) throw new Error('Покемон не найден');
 
       const data = await res.json();
-      const pokemonName: string = data.name;
-      const abilityRequests = data.abilities.map(
-        async (entry: PokemonAbilityReference) => {
-          const res = await fetch(entry.ability.url);
-          return await res.json();
-        }
-      );
-      const abilities: AbilityEntry[] = await Promise.all(abilityRequests);
 
-      this.setState({ abilities, loading: false, pokemonName });
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        this.setState({ error: error.message, loading: false });
-      } else {
-        this.setState({ error: 'Неизвестная ошибка', loading: false });
-      }
+      const fullInfo: PokemonInfo = {
+        sprite: data.sprites.front_default,
+        types: data.types.map((t: TypeEntry) => t.type.name),
+        height: data.height,
+        weight: data.weight,
+        baseExperience: data.base_experience,
+        abilities: data.abilities.map((a: AbilityEntry) => a.ability.name),
+      };
+
+      setInfo(fullInfo);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Ошибка загрузки покемона');
+    } finally {
+      setLoading(false);
     }
-  }
-  componentDidMount() {
-    if (this.props.pokemonName) {
-      this.fetchPokemonAbilities(this.props.pokemonName);
+  }, []);
+
+  useEffect(() => {
+    if (pokemonName) {
+      fetchPokemon(pokemonName.toLowerCase());
     } else {
-      this.fetchAllPokemon();
+      fetchList();
     }
-  }
-  render() {
-    return this.props.children({
-      abilities: this.state.abilities,
-      loading: this.state.loading,
-      error: this.state.error,
-      pokemonName: this.state.pokemonName,
-    });
-  }
-}
+  }, [pokemonName, fetchPokemon, fetchList]);
+
+  return children({
+    loading,
+    error,
+    pokemonList,
+    info,
+  });
+};

@@ -1,12 +1,40 @@
-// import './App.css';
-// import { Component } from 'react';
-// import { Search } from './components/Search';
-// import { ShowResult } from './components/ShowResult';
-// import { PokemonLoader } from './components/PokemonLoader';
+import { useEffect, useState } from 'react';
+import '../App.css';
+import { Search } from './Search';
+import { PokemonCard } from './PokemonCard';
+import { PokemonList } from './PokemonList';
+import { PokemonLoader } from './PokemonLoader';
 
-// interface State {
-//   pokemonName: string;
-// }
+export  const Homepage = ()=>{
+  const [searchTerm, setSearchTerm] = useState(()=>{
+    return localStorage.getItem('search') || ''
+  });
+
+
+  useEffect(() => {
+    if (searchTerm.trim()) {
+localStorage.setItem('search', searchTerm);
+    } 
+  }, [searchTerm]);
+
+
+  return (
+    <PokemonLoader pokemonName={searchTerm} searchTerm={searchTerm}>
+      {({ loading, error, pokemonList, info }) => (
+        <div>
+          <Search onSearch={setSearchTerm} />
+          {loading && <p>Loading...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {info ? (
+            <PokemonCard info={info} />
+          ) : (
+            pokemonList && <PokemonList pokemons={pokemonList} />
+          )}
+        </div>
+      )}
+    </PokemonLoader>
+  );
+}
 
 // export class App extends Component<object, State> {
 //   state: State = {
