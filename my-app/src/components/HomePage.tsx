@@ -17,6 +17,8 @@ localStorage.setItem('search', searchTerm);
     } 
   }, [searchTerm]);
 
+  
+
 
   return (
     <PokemonLoader pokemonName={searchTerm} searchTerm={searchTerm}>

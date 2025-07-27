@@ -19,10 +19,12 @@ interface PokemonLoaderProps {
   searchTerm: string;
 }
 
+
 export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
   pokemonName,
   children,
-  searchTerm,
+  searchTerm, 
+  
 }) => {
   const [pokemonList, setPokemonList] = useState<
     NamedAPIResource[] | undefined
@@ -92,10 +94,12 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
     }
   }, [pokemonName, fetchPokemon, fetchList]);
 
-  return children({
-    loading,
-    error,
-    pokemonList,
-    info,
-  });
+  return (
+    children({
+      loading,
+      error,
+      pokemonList,
+      info,
+    })
+  );
 };
