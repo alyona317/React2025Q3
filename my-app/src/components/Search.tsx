@@ -1,41 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
 
 interface Props {
   onSearch: (pokemonName: string) => void;
 }
 
-interface State {
-  inputValue: string;
-}
+export const Search: React.FC<Props> = ({ onSearch }) => {
+  const [inputValue, setInputValue] = useState('');
 
-export class Search extends Component<Props, State> {
-  state: State = { inputValue: '' };
-
-  handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ inputValue: e.target.value });
-  };
-  handleClick = () => {
-    this.props.onSearch(this.state.inputValue.trim().toLowerCase());
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
 
-  render() {
-    return (
-      <div style={{ marginBottom: 20 }}>
-        <input
-          type="text"
-          value={this.state.inputValue}
-          onChange={this.handleChange}
-          placeholder="Enter pokemon's name"
-          style={{ padding: '0.5rem', width: 200 }}
-        />
-        <button
-          onClick={this.handleClick}
-          style={{ marginLeft: 10, padding: '0.5rem 1rem' }}
-        >
-          Search
-        </button>
-      </div>
-    );
-  }
-}
+  const handleSubmit = () => {
+    onSearch(inputValue.trim().toLowerCase());
+  };
+  return (
+    <div style={{ marginBottom: 20 }}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+        placeholder="Enter pokemon's name"
+        style={{ padding: '0.5rem', width: 200 }}
+      />
+      <button
+        onClick={handleSubmit}
+        style={{ marginLeft: 10, padding: '0.5rem 1rem' }}
+      >
+        Search
+      </button>
+    </div>
+  );
+};

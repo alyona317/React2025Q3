@@ -36,7 +36,7 @@ describe('ShowResult', () => {
               {
                 effect: 'Paralyzes attacker',
                 short_effect: 'Has a 30% chance to paralyze.',
-                language: { name: 'en'},
+                language: { name: 'en' },
               },
             ],
           },
