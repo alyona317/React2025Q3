@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
-
-
   return (
     <div className="wrapper">
       <nav className="nav">
@@ -12,7 +10,8 @@ export const Navbar: React.FC = () => {
             src="https://brandeps.com/logo-download/P/Pokemon-logo-vector-01.svg"
             alt="Logo"
             className="nav__logo"
-          Style={'width: 50px'}/>
+            style={{ width: '50px' }}
+          />
         </Link>
         <div className="nav__List">
           <Link to="/search">Search</Link>

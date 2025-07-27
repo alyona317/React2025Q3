@@ -1,4 +1,4 @@
-export const Error = ()=>{
+export const Error = () => {
   return (
     <div className="error__container">
       <h1 className="error_title">404</h1>
@@ -9,4 +9,4 @@ export const Error = ()=>{
       />
     </div>
   );
-}
+};

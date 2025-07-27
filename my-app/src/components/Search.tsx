@@ -5,7 +5,7 @@ interface Props {
   onSearch: (pokemonName: string) => void;
 }
 
-export const Search: React.FC<Props> = ({onSearch}) => {
+export const Search: React.FC<Props> = ({ onSearch }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

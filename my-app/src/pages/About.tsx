@@ -18,7 +18,8 @@ export const About = () => {
         setImageUrl(sprite);
         console.log(sprite);
       } catch (err) {
-        setError('Не удалось загрузить покемона');
+        setError('Error');
+        console.error(err);
       }
     };
     fetchRandomImage();

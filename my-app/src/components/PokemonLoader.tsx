@@ -2,11 +2,9 @@ import { useCallback, useEffect, useState, type JSX } from 'react';
 import type {
   PokemonInfo,
   NamedAPIResource,
-  PropsWithChildren,
   TypeEntry,
   AbilityEntry,
 } from '../types/pokemon';
-
 
 interface PokemonLoaderProps {
   pokemonName: string;
@@ -19,12 +17,10 @@ interface PokemonLoaderProps {
   searchTerm: string;
 }
 
-
 export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
   pokemonName,
   children,
-  searchTerm, 
-  
+  searchTerm,
 }) => {
   const [pokemonList, setPokemonList] = useState<
     NamedAPIResource[] | undefined
@@ -48,12 +44,12 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
 
     try {
       const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
-      if (!res.ok) throw new Error('Покемон не найден');
+      if (!res.ok) throw new Error('Pokemon is not found');
 
       const data = await res.json();
       setPokemonList(data.results);
     } catch {
-      setError('Ошибка загрузки покемона');
+      setError('Loading error');
     } finally {
       setLoading(false);
     }
@@ -65,7 +61,7 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
 
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      if (!res.ok) throw new Error('Покемон не найден');
+      if (!res.ok) throw new Error('Pokemon is not found');
 
       const data = await res.json();
 
@@ -80,7 +76,7 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
 
       setInfo(fullInfo);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Ошибка загрузки покемона');
+      setError(err instanceof Error ? err.message : 'Loading error');
     } finally {
       setLoading(false);
     }
@@ -94,12 +90,10 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
     }
   }, [pokemonName, fetchPokemon, fetchList]);
 
-  return (
-    children({
-      loading,
-      error,
-      pokemonList,
-      info,
-    })
-  );
+  return children({
+    loading,
+    error,
+    pokemonList,
+    info,
+  });
 };
