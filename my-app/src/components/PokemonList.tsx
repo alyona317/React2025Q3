@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import type { NamedAPIResource } from '../types/pokemon';
+import { PokemonItem } from './PokemonItem/PokemonItem';
 const ITEMS_PER_PAGE = 50;
 const STORAGE_KEY = 'currentPokemonPage';
 
@@ -44,15 +45,13 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
   const handleNext = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
-  const navigate = useNavigate();
-
-  return (
+   return (
     <>
       <ul>
+
         {currentPageItems.map((p) => (
-          <li key={p.name} onClick={() => navigate(`${p.name}`)}>
-            {p.name}{' '}
-          </li>
+                  <PokemonItem key={p.name} name={p.name}/>
+
         ))}
       </ul>
       <div
