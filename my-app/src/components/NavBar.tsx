@@ -20,8 +20,9 @@ export const Navbar: React.FC = () => {
           <Link to="/search">Search</Link>
           <Link to="/about">About</Link>
         </div>
+        <ThemeSwitcher />
       </nav>
-      <ThemeSwitcher/>
+
       <FlyoutElement />
     </div>
   );

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import type { PokemonInfo, TypeEntry, AbilityEntry } from '../types/pokemon';
+import { useTheme } from './ThemeContext';
 
 export const PokemonDetails = () => {
   const { name } = useParams();
   const [info, setInfo] = useState<PokemonInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const {theme} = useTheme()
 
   useEffect(() => {
     if (!name) return;
@@ -46,21 +48,25 @@ export const PokemonDetails = () => {
 
   return (
     <div style={{ padding: '1rem' }}>
-      <h2>Information about {name}</h2>
-      <h2>{info.sprite && <img src={info.sprite} alt="pokemon" />}</h2>
-      <p>
+      <h2 className={theme === 'light' ? 'cardTitleLight' : 'cardTitleDark'}>
+        Information about {name}
+      </h2>
+      <h2 className={theme === 'light' ? 'cardTitleLight' : 'cardTitleDark'}>
+        {info.sprite && <img src={info.sprite} alt="pokemon" />}
+      </h2>
+      <p className={theme === 'light' ? 'cardInfoLight' : 'cardInfoDark'}>
         <strong>Types:</strong> {info.types.join(', ')}
       </p>
-      <p>
+      <p className={theme === 'light' ? 'cardInfoLight' : 'cardInfoDark'}>
         <strong>Height:</strong> {info.height}
       </p>
-      <p>
+      <p className={theme === 'light' ? 'cardInfoLight' : 'cardInfoDark'}>
         <strong>Weight:</strong> {info.weight}
       </p>
-      <p>
+      <p className={theme === 'light' ? 'cardInfoLight' : 'cardInfoDark'}>
         <strong>Base XP:</strong> {info.baseExperience}
       </p>
-      <p>
+      <p className={theme === 'light' ? 'cardInfoLight' : 'cardInfoDark'}>
         <strong>Abilities:</strong> {info.abilities.join(', ')}
       </p>
     </div>

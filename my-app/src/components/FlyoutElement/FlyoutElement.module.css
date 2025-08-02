@@ -1,0 +1,30 @@
+.textLight{
+    font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+.textDark{
+  color: #e0e0ff;
+    font-size: 1rem;
+  font-weight: 500;
+}
+
+.countLight{
+    font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+.countDark{
+  color: #e0e0ff;
+    font-size: 1.2rem;
+  font-weight: 500;
+}
+.buttons{
+  display: flex;
+  gap:20px
+
+}
+.container{
+  display: flex;
+  gap: 20px;
+}

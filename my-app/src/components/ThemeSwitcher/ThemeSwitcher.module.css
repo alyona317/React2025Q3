@@ -1,3 +1,7 @@
+.container{
+  display: flex;
+  gap: 10px
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -41,4 +45,15 @@ input:checked + .slider {
 
 input:checked + .slider::before {
   transform: translateX(24px);
+}
+
+.textLight{
+    font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+.textDark{
+  color: #e0e0ff;
+    font-size: 1rem;
+  font-weight: 500;
 }
