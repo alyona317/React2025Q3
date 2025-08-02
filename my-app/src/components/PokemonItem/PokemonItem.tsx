@@ -1,9 +1,9 @@
-import { useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './PokemonItem.module.css';
-import { useTheme } from "../ThemeContext";
+import { useTheme } from '../ThemeContext';
 
-export const PokemonItem = (props: {name:string} ) => {
+export const PokemonItem = (props: { name: string }) => {
   const { theme } = useTheme();
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();

@@ -6,7 +6,7 @@ import { Homepage } from './components/HomePage';
 import { Welcome } from './pages/Welcome';
 import { Error } from './pages/Error';
 import { PokemonDetails } from './components/PokemonDetails';
-import './style/variable.css'
+import './style/variable.css';
 
 export const App = () => {
   return (

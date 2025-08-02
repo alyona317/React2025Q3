@@ -1,6 +1,6 @@
-.container{
+.container {
   display: flex;
-  gap: 10px
+  gap: 10px;
 }
 .switch {
   position: relative;
@@ -18,7 +18,7 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  background-color: #ccc;
+  background-color: #bcb5f9;
   border-radius: 26px;
   top: 0;
   left: 0;
@@ -28,32 +28,32 @@
 }
 
 .slider::before {
-  content: "";
+  content: '';
   position: absolute;
   height: 20px;
   width: 20px;
   left: 4px;
   bottom: 3px;
-  background-color: white;
+  background-color: rgb(207, 0, 0);
   border-radius: 50%;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #66aaff;
+  background-color: #e8f000;
 }
 
 input:checked + .slider::before {
   transform: translateX(24px);
 }
 
-.textLight{
-    font-size: 1rem;
+.textLight {
+  font-size: 1rem;
   color: #333;
   font-weight: 500;
 }
-.textDark{
-  color: #e0e0ff;
-    font-size: 1rem;
+.textDark {
+  color: #e8f000;
+  font-size: 1rem;
   font-weight: 500;
 }

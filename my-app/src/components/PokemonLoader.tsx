@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useState, type JSX, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useState,
+  type JSX,
+  type ReactNode,
+} from 'react';
 import type {
   PokemonInfo,
   NamedAPIResource,

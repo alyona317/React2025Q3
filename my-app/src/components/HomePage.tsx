@@ -1,5 +1,5 @@
 import '../App.css';
-import { Search } from './Search';
+import { Search } from './Search/Search';
 import { PokemonCard } from './PokemonCard';
 import { PokemonList } from './PokemonList';
 import { PokemonLoader } from './PokemonLoader';

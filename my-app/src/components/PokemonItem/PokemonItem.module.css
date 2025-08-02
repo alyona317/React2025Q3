@@ -23,7 +23,9 @@
   border-radius: 6px;
   position: relative;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .checkboxLight:checked {
@@ -52,15 +54,17 @@
 /* dark theme */
 
 .itemDark {
-    display: flex;
+  display: flex;
   align-items: center;
   gap: 12px;
   padding: 10px 16px;
   border-radius: 8px;
   background-color: #1e1e2f;
   color: #e0e0ff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  cursor: pointer;
   user-select: none;
 }
 
@@ -69,7 +73,7 @@
 }
 
 .checkboxDark {
-   appearance: none;
+  appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 6px;
@@ -78,7 +82,9 @@
 
   border: 2.5px solid #66aaff;
   background-color: transparent;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .checkboxDark:checked {
@@ -92,6 +98,6 @@
 
 .nameDark {
   color: #e0e0ff;
-    font-size: 1rem;
+  font-size: 1rem;
   font-weight: 500;
 }

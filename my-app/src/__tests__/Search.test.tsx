@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { Search } from '../components/Search';
+import { Search } from '../components/Search/Search';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 

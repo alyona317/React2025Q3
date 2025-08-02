@@ -1,9 +1,9 @@
-import styles from './ThemeSwitcher.module.css'
+import styles from './ThemeSwitcher.module.css';
 
 import { useTheme } from '../ThemeContext';
 
-export const ThemeSwitcher = ()=>{
-    const {theme, toggleTheme} = useTheme();
+export const ThemeSwitcher = () => {
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className={styles.container}>
@@ -23,4 +23,4 @@ export const ThemeSwitcher = ()=>{
       </span>
     </div>
   );
-}
+};

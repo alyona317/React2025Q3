@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
-import { Button } from './Button/Button';
 import { FlyoutElement } from './FlyoutElement/FlyoutElement';
+import { useTheme } from './ThemeContext';
 
 export const Navbar: React.FC = () => {
+  const { theme } = useTheme();
   return (
     <div className="wrapper">
       <nav className="nav">
@@ -17,8 +18,18 @@ export const Navbar: React.FC = () => {
           />
         </Link>
         <div className="nav__List">
-          <Link to="/search">Search</Link>
-          <Link to="/about">About</Link>
+          <Link
+            to="/search"
+            className={theme === 'light' ? 'nav__link_light' : 'nav__link_dark'}
+          >
+            Search
+          </Link>
+          <Link
+            to="/about"
+            className={theme === 'light' ? 'nav__link_light' : 'nav__link_dark'}
+          >
+            About
+          </Link>
         </div>
         <ThemeSwitcher />
       </nav>

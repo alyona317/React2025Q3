@@ -2,7 +2,7 @@ import type { PokemonInfo } from '../types/pokemon';
 import { useTheme } from './ThemeContext';
 
 export const PokemonCard: React.FC<{ info: PokemonInfo }> = ({ info }) => {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
   return (
     <div>
       <h2 className={theme === 'light' ? 'cardTitleLight' : 'cardTitleDark'}>
@@ -25,5 +25,4 @@ export const PokemonCard: React.FC<{ info: PokemonInfo }> = ({ info }) => {
       </p>
     </div>
   );
-
 };

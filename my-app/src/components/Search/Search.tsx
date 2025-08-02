@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
+import styles from './Search.module.css';
+import { useTheme } from '../ThemeContext';
 
 interface Props {
   onSearch: (pokemonName: string) => void;
@@ -7,6 +9,7 @@ interface Props {
 
 export const Search: React.FC<Props> = ({ onSearch }) => {
   const [inputValue, setInputValue] = useState('');
+  const { theme } = useTheme();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -23,10 +26,12 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
         onChange={handleChange}
         placeholder="Enter pokemon's name"
         style={{ padding: '0.5rem', width: 200 }}
+        className={theme === 'light' ? styles.inputLight : styles.inputDark}
       />
       <button
         onClick={handleSubmit}
         style={{ marginLeft: 10, padding: '0.5rem 1rem' }}
+        className={theme === 'light' ? styles.buttonLight : styles.buttonDark}
       >
         Search
       </button>

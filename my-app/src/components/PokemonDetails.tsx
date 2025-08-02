@@ -8,7 +8,7 @@ export const PokemonDetails = () => {
   const [info, setInfo] = useState<PokemonInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const {theme} = useTheme()
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (!name) return;

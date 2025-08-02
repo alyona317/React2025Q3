@@ -4,12 +4,14 @@ import type { NamedAPIResource } from '../types/pokemon';
 import { PokemonItem } from './PokemonItem/PokemonItem';
 const ITEMS_PER_PAGE = 50;
 const STORAGE_KEY = 'currentPokemonPage';
+import { useTheme } from './ThemeContext';
 
 export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
   pokemons,
 }) => {
   const totalPages = Math.ceil(pokemons.length / ITEMS_PER_PAGE);
   const [searchParams, setSearchParams] = useSearchParams();
+  const { theme } = useTheme();
 
   const getInitialPage = (): number => {
     const urlPage = Number(searchParams.get('page'));
@@ -45,13 +47,11 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
   const handleNext = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
-   return (
+  return (
     <>
       <ul>
-
         {currentPageItems.map((p) => (
-                  <PokemonItem key={p.name} name={p.name}/>
-
+          <PokemonItem key={p.name} name={p.name} />
         ))}
       </ul>
       <div
@@ -62,13 +62,29 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
           alignItems: 'center',
         }}
       >
-        <button onClick={handlePrev} disabled={currentPage === 1}>
+        <button
+          onClick={handlePrev}
+          disabled={currentPage === 1}
+          className={
+            theme === 'light'
+              ? 'button__pagination_light'
+              : 'button__pagination_dark'
+          }
+        >
           Back
         </button>
-        <span>
+        <span className={theme === 'light' ? 'textLight' : 'textDark'}>
           Page {currentPage} of {totalPages}
         </span>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>
+        <button
+          onClick={handleNext}
+          disabled={currentPage === totalPages}
+          className={
+            theme === 'light'
+              ? 'button__pagination_light'
+              : 'button__pagination_dark'
+          }
+        >
           Forward
         </button>
       </div>

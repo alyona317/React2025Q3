@@ -13,20 +13,17 @@ describe('PokemonLoader', () => {
   });
 
   it('calls API with correct pokemon name', async () => {
-    const mockFetch = vi
-      .fn()
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({
-          sprites: { front_default: 'sprite.png' },
-          types: [{ type: { name: 'electric' } }],
-          height: 4,
-          weight: 60,
-          base_experience: 112,
-          abilities: [{ ability: { name: 'static' } }],
-        }),
-      })
-
+    const mockFetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        sprites: { front_default: 'sprite.png' },
+        types: [{ type: { name: 'electric' } }],
+        height: 4,
+        weight: 60,
+        base_experience: 112,
+        abilities: [{ ability: { name: 'static' } }],
+      }),
+    });
 
     global.fetch = mockFetch;
 
@@ -42,8 +39,4 @@ describe('PokemonLoader', () => {
       );
     });
   });
-
-
-  
-  
 });
