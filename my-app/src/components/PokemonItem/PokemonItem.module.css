@@ -1,5 +1,5 @@
 /* light theme */
-.item {
+.itemLight {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -11,11 +11,11 @@
   transition: background-color 0.3s ease;
 }
 
-.item:hover {
+.itemLight:hover {
   background-color: #d0e2ff;
 }
 
-.checkbox {
+.checkboxLight {
   appearance: none;
   width: 20px;
   height: 20px;
@@ -26,12 +26,12 @@
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.checkbox:checked {
+.checkboxLight:checked {
   background-color: #007bff;
   border-color: #007bff;
 }
 
-.checkbox:checked::after {
+.checkboxLight:checked::after {
   content: '';
   position: absolute;
   top: 2px;
@@ -43,7 +43,7 @@
   transform: rotate(45deg);
 }
 
-.name {
+.nameLight {
   font-size: 1rem;
   color: #333;
   font-weight: 500;
@@ -51,31 +51,47 @@
 
 /* dark theme */
 
-.item.dark {
+.itemDark {
+    display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
   background-color: #1e1e2f;
   color: #e0e0ff;
   transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+  user-select: none;
 }
 
-.item.dark:hover {
+.itemDark:hover {
   background-color: #2c2c47;
 }
 
-.checkbox.dark {
+.checkboxDark {
+   appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+
   border: 2.5px solid #66aaff;
   background-color: transparent;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.checkbox.dark:checked {
+.checkboxDark:checked {
   background-color: #66aaff;
   border-color: #66aaff;
 }
 
-.checkbox.dark:checked::after {
+.checkboxDark:checked::after {
   border-color: #1e1e2f;
 }
 
-.name.dark {
+.nameDark {
   color: #e0e0ff;
+    font-size: 1rem;
+  font-weight: 500;
 }

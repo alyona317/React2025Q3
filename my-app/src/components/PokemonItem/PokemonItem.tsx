@@ -1,23 +1,33 @@
 import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from './PokemonItem.module.css';
+import { useTheme } from "../ThemeContext";
 
 export const PokemonItem = (props: {name:string} ) => {
+  const { theme } = useTheme();
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
   const handleChange = () => {
     setChecked(!checked);
   };
   return (
-    <li onClick={() => navigate(`${props.name}`)} className={styles.item}>
+    <li
+      onClick={() => navigate(`${props.name}`)}
+      className={theme === 'light' ? styles.itemLight : styles.itemDark}
+    >
       <input
         type="checkbox"
         checked={checked}
         onChange={handleChange}
         onClick={(e) => e.stopPropagation()}
-        className={styles.checkbox}
+        className={
+          theme === 'light' ? styles.checkboxLight : styles.checkboxDark
+        }
       />
-      <span className={styles.name}> {props.name} </span>
+      <span className={theme === 'light' ? styles.nameLight : styles.nameDark}>
+        {' '}
+        {props.name}{' '}
+      </span>
     </li>
   );
 };

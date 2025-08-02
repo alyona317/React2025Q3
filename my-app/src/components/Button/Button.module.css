@@ -1,22 +1,15 @@
-
-:root {
-  --btn-bg:  #f0f4f8;
-  --btn-color: #222;
-  --btn-border: #ccc;
+.buttonLight {
+  background-color: var(--btn-bg-light);
+  color: var(--btn-color-light);
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-
-body.dark {
-  --btn-bg: #1e1e2f;
-  --btn-color: #e0e0ff;
-  --btn-border: #2c2c47;
-}
-
-
-.button {
-  background-color: var(--btn-bg);
-  color: var(--btn-color);
-
+.buttonDark {
+  background-color: var(--btn-bg-dark);
+  color: var(--btn-color-dark);
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 6px;
@@ -24,8 +17,11 @@ body.dark {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.button:hover {
-  background-color: var(--btn-border);
+.buttonLight:hover {
+  background-color: var(--btn-border-light);
+}
+.buttonDark:hover {
+  background-color: var(--btn-border-dark);
 }
 .button:focus {
   outline: none;
