@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
+import { Button } from './Button/Button';
+import { FlyoutElement } from './FlyoutElement/FlyoutElement';
 
 export const Navbar: React.FC = () => {
   return (
@@ -18,6 +21,8 @@ export const Navbar: React.FC = () => {
           <Link to="/about">About</Link>
         </div>
       </nav>
+      <ThemeSwitcher/>
+      <FlyoutElement />
     </div>
   );
 };
