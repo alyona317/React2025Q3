@@ -46,7 +46,6 @@ describe('Navbar', () => {
 
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toBeInTheDocument();
-
   });
 
   it('apply correct class to link', () => {

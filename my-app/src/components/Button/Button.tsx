@@ -1,17 +1,23 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import styles from './Button.module.css';
 import { useTheme } from '../ThemeContext/useTheme';
 
-export const Button = ({ name }: { name: string }) => {
+interface ButtonProps {
+  name: string;
+  onClick: () => void;
+}
+export const Button = ({name, onClick}: ButtonProps) => {
   const { theme } = useTheme();
-  const [isClicked, setIsClicked] = useState(false);
-  const setInfo = () => {
-    setIsClicked(!isClicked);
-  };
+  // const [isClicked, setIsClicked] = useState(false);
+
+  // const setInfo = () => {
+  //   setIsClicked(!isClicked);
+  // };
+
   return (
     <button
       className={theme === 'light' ? styles.buttonLight : styles.buttonDark}
-      onClick={setInfo}
+      onClick={onClick}
     >
       {name}
     </button>

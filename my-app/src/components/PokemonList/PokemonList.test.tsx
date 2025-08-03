@@ -20,8 +20,7 @@ const mockPokemons = Array.from({ length: 120 }, (_, i) => ({
 describe('PokemonList', () => {
   beforeEach(() => {
     localStorage.clear();
-    (useTheme as ReturnType<typeof vi.fn>)
-      .mockReturnValue({ theme: 'light' })
+    (useTheme as ReturnType<typeof vi.fn>).mockReturnValue({ theme: 'light' });
   });
 
   it('renders first page with 50 pokemons', () => {
