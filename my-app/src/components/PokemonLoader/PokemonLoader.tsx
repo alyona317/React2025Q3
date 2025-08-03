@@ -10,7 +10,7 @@ import type {
   NamedAPIResource,
   TypeEntry,
   AbilityEntry,
-} from '../types/pokemon';
+} from '../../types/pokemon';
 
 interface PokemonLoaderProps {
   pokemonName: string;

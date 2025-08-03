@@ -1,6 +1,6 @@
 import styles from './FlyoutElement.module.css';
 import { Button } from '../Button/Button';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
 export const FlyoutElement = () => {
   const { theme } = useTheme();

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import { PokemonLoader } from '../components/PokemonLoader';
+import { PokemonLoader } from '../components/PokemonLoader/PokemonLoader';
 import { vi } from 'vitest';
 
 describe('PokemonLoader', () => {

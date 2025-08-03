@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
-import { FlyoutElement } from './FlyoutElement/FlyoutElement';
-import { useTheme } from './ThemeContext';
+import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
+import { FlyoutElement } from '../FlyoutElement/FlyoutElement';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
 export const Navbar: React.FC = () => {
   const { theme } = useTheme();

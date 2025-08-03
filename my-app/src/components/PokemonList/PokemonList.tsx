@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import type { NamedAPIResource } from '../types/pokemon';
-import { PokemonItem } from './PokemonItem/PokemonItem';
+import type { NamedAPIResource } from '../../types/pokemon';
+import { PokemonItem } from '../PokemonItem/PokemonItem';
 const ITEMS_PER_PAGE = 50;
 const STORAGE_KEY = 'currentPokemonPage';
-import { useTheme } from './ThemeContext';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
 export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
   pokemons,

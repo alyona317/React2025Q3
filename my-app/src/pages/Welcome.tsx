@@ -1,4 +1,4 @@
-import { useTheme } from '../components/ThemeContext';
+import { useTheme } from '../components/ThemeContext/ThemeContext';
 export const Welcome = () => {
   const { theme } = useTheme();
   return (

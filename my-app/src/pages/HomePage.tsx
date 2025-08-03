@@ -1,8 +1,8 @@
 import '../App.css';
-import { Search } from './Search/Search';
-import { PokemonCard } from './PokemonCard';
-import { PokemonList } from './PokemonList';
-import { PokemonLoader } from './PokemonLoader';
+import { Search } from '../components/Search/Search';
+import { PokemonCard } from '../components/PokemonCard/PokemonCard';
+import { PokemonList } from '../components/PokemonList/PokemonList';
+import { PokemonLoader } from '../components/PokemonLoader/PokemonLoader';
 import { useSearchWithStorage } from '../hooks/useSearchWithStorage';
 import { Outlet } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Button.module.css';
-import { useTheme } from '../ThemeContext';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
 export const Button = ({ name }: { name: string }) => {
   const { theme } = useTheme();
