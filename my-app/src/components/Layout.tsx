@@ -9,7 +9,7 @@ export const Layout = () => {
     <>
       <Navbar />
       <Outlet />
-      <FlyoutElement/>
+      <FlyoutElement />
       <footer className={theme === 'light' ? 'footerLight' : 'footerDark'}>
         2025
       </footer>

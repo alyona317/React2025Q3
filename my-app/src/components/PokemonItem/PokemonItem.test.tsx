@@ -1,6 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
 import { PokemonItem } from './PokemonItem';
+import { Provider } from 'react-redux';
+import { store } from '../../app/store';
 
 vi.mock('../ThemeContext/useTheme', () => ({
   useTheme: () => ({ theme: 'light' }),
@@ -17,7 +19,11 @@ describe('PokemonItem', () => {
   });
 
   it('renders with correct text and theme classes (light)', () => {
-    render(<PokemonItem name="pikachu" />);
+    render(
+      <Provider store={store}>
+        <PokemonItem name="pikachu" />
+      </Provider>
+    );
 
     const listItem = screen.getByRole('listitem');
     const checkbox = screen.getByRole('checkbox');
@@ -33,7 +39,11 @@ describe('PokemonItem', () => {
   });
 
   it('toggles checkbox state on change', () => {
-    render(<PokemonItem name="pikachu" />);
+    render(
+      <Provider store={store}>
+        <PokemonItem name="pikachu" />
+      </Provider>
+    );
     const checkbox = screen.getByRole('checkbox');
 
     fireEvent.click(checkbox);
@@ -44,7 +54,11 @@ describe('PokemonItem', () => {
   });
 
   it('calls navigate with the correct name on list item click', () => {
-    render(<PokemonItem name="pikachu" />);
+    render(
+      <Provider store={store}>
+        <PokemonItem name="pikachu" />
+      </Provider>
+    );
     const listItem = screen.getByRole('listitem');
 
     fireEvent.click(listItem);
@@ -52,7 +66,11 @@ describe('PokemonItem', () => {
   });
 
   it('stops propagation on checkbox click', () => {
-    render(<PokemonItem name="pikachu" />);
+    render(
+      <Provider store={store}>
+        <PokemonItem name="pikachu" />
+      </Provider>
+    );
     const listItem = screen.getByRole('listitem');
 
     const listItemClickHandler = vi.fn();

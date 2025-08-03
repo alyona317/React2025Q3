@@ -6,7 +6,7 @@ interface ButtonProps {
   name: string;
   onClick: () => void;
 }
-export const Button = ({name, onClick}: ButtonProps) => {
+export const Button = ({ name, onClick }: ButtonProps) => {
   const { theme } = useTheme();
   // const [isClicked, setIsClicked] = useState(false);
 

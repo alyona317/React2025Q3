@@ -11,21 +11,24 @@ export const PokemonItem = (props: { name: string }) => {
   const { theme } = useTheme();
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(!checked);
-    e.target.checked ? dispatch(increment()) : dispatch(decrement());
+    if (e.target.checked) {
+      dispatch(increment());
+    } else {
+      dispatch(decrement());
+    }
   };
 
-    const checkedCount = useSelector(
-      (state: RootState) => state.counter.checkedCount
-    );
+  const checkedCount = useSelector(
+    (state: RootState) => state.counter.checkedCount
+  );
   useEffect(() => {
     if (checkedCount === 0) {
       setChecked(false);
     }
   }, [checkedCount]);
-
 
   return (
     <li

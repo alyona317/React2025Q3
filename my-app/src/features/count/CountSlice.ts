@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-
 export interface CounterState {
   checkedCount: number;
 }
@@ -29,5 +28,6 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, setCount, resetCount } = counterSlice.actions;
+export const { increment, decrement, setCount, resetCount } =
+  counterSlice.actions;
 export const counterReducer = counterSlice.reducer;
