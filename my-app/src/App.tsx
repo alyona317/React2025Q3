@@ -1,10 +1,10 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
-import { About } from './pages/About';
+import { About } from './pages/About/About';
 import { Layout } from './components/Layout';
-import { Homepage } from './pages/HomePage';
-import { Welcome } from './pages/Welcome';
-import { Error } from './pages/Error';
+import { Homepage } from './pages/HomePage/Homepage';
+import { Welcome } from './pages/Welcome/Welcome';
+import { Error } from './pages/Error/Error';
 import { PokemonDetails } from './components/PokemonDetails/PokemonDetails';
 
 export const App = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
 import styles from './Search.module.css';
-import { useTheme } from '../ThemeContext/ThemeContext';
+import { useTheme } from '../ThemeContext/useTheme';
 
 interface Props {
   onSearch: (pokemonName: string) => void;

@@ -1,5 +1,5 @@
 import type { PokemonInfo } from '../../types/pokemon';
-import { useTheme } from '../ThemeContext/ThemeContext';
+import { useTheme } from '../ThemeContext/useTheme';
 
 export const PokemonCard: React.FC<{ info: PokemonInfo }> = ({ info }) => {
   const { theme } = useTheme();

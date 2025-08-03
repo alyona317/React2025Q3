@@ -1,6 +1,6 @@
-import { useTheme } from "../components/ThemeContext/ThemeContext";
+import { useTheme } from '../../components/ThemeContext/useTheme';
 export const Error = () => {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
   return (
     <div className="error__container">
       <h1

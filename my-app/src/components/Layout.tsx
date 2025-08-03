@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './NavBar/NavBar';
-import { useTheme } from './ThemeContext/ThemeContext';
+import { useTheme } from './ThemeContext/useTheme';
 
 export const Layout = () => {
   const { theme } = useTheme();

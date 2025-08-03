@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './PokemonItem.module.css';
-import { useTheme } from '../ThemeContext/ThemeContext';
+import { useTheme } from '../ThemeContext/useTheme';
 
 export const PokemonItem = (props: { name: string }) => {
   const { theme } = useTheme();

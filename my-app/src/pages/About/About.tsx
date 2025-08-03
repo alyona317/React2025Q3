@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../App.css';
-import { useTheme } from '../components/ThemeContext/ThemeContext';
+import { useTheme } from '../../components/ThemeContext/useTheme';
 
 export const About = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -13,7 +12,7 @@ export const About = () => {
         const res = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${randomId}`
         );
-        if (!res.ok) throw new Error('Покемон не найден');
+        if (!res.ok) throw new Error('Pokemon is not found');
         const data = await res.json();
         const sprite = data.sprites.other['official-artwork'].front_default;
 

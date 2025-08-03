@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { PokemonLoader } from '../components/PokemonLoader/PokemonLoader';
 import { vi } from 'vitest';
