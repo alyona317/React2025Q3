@@ -4,9 +4,29 @@ import { PokemonCard } from '@components/PokemonCard/PokemonCard';
 import { PokemonList } from '@components/PokemonList/PokemonList';
 import { PokemonLoader } from '@components/PokemonLoader/PokemonLoader';
 import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
+import { useGetAllPokemonsQuery, useGetPokemonByNameQuery } from '../../services/pokemonApi';
 
 export const Homepage = () => {
   const { searchTerm, setSearchTerm } = useSearchWithStorage();
+
+  const {
+    data: pokemonInfo,
+    isLoading: isLoadingPokemon,
+    error: errorPokemon,
+  } = useGetPokemonByNameQuery(searchTerm, {
+    skip: !searchTerm.trim(),
+  });
+
+  const {
+    data: allPokemons,
+    isLoading: isLoadingAll,
+    error: errorAll,
+  } = useGetAllPokemonsQuery(undefined, {
+    skip: !!searchTerm.trim(),
+  });
+
+  const loading = isLoadingPokemon || isLoadingAll;
+  const error = errorPokemon || errorAll;
 
   return (
     <PokemonLoader pokemonName={searchTerm} searchTerm={searchTerm}>
