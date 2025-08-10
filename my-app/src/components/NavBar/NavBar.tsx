@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeSwitcher } from '@components/ThemeSwitcher/ThemeSwitcher';
 import { useTheme } from '@components/ThemeContext/useTheme';
+import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
 
 export const Navbar: React.FC = () => {
+  const { searchTerm, setSearchTerm } = useSearchWithStorage();
   const { theme } = useTheme();
   return (
     <div className="wrapper">
@@ -20,6 +22,7 @@ export const Navbar: React.FC = () => {
           <Link
             to="/search"
             className={theme === 'light' ? 'nav__link_light' : 'nav__link_dark'}
+            onClick={()=> setSearchTerm('')}
           >
             Search
           </Link>

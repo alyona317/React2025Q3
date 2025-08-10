@@ -20,7 +20,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (!isThemeLoaded) return;
-    document.documentElement.setAttribute('data-theme', theme); //
+    document.documentElement.setAttribute('data-theme', theme); 
     localStorage.setItem('theme', theme);
   }, [theme, isThemeLoaded]);
 

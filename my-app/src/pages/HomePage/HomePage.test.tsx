@@ -1,77 +1,88 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Homepage } from './Homepage';
+import { ThemeProvider } from '@components/ThemeContext/ThemeProvider';
 
-interface SearchProps {
-  onSearch: (value: string) => void;
-}
 
-interface PokemonCardProps {
-  info: {
-    name: string;
-    [key: string]: unknown;
+const mockUseGetPokemonByNameQuery = vi.fn();
+const mockUseGetAllPokemonsQuery = vi.fn();
+
+
+vi.mock('../../services/pokemonApi', async (importOriginal) => {
+const actual = (await importOriginal()) as object;
+  return {
+    ...actual,
+    useGetPokemonByNameQuery: () => mockUseGetPokemonByNameQuery(),
   };
-}
+});
 
-interface PokemonListProps {
-  pokemons: { name: string }[];
-}
+import { pokemonApi } from '../../services/pokemonApi';
 
-interface PokemonLoaderProps {
-  children: (data: {
-    loading: boolean;
-    error: string | null;
-    info: { name: string };
-    pokemonList: { name: string }[];
-  }) => React.ReactNode;
-  pokemonName: string;
-}
-
-vi.mock('@components/Search/Search', () => ({
-  Search: ({ onSearch }: SearchProps) => (
-    <input placeholder="Search" onChange={(e) => onSearch(e.target.value)} />
-  ),
-}));
-
-vi.mock('@components/PokemonCard/PokemonCard', () => ({
-  PokemonCard: ({ info }: PokemonCardProps) => (
-    <div>PokemonCard: {info.name}</div>
-  ),
-}));
-
-vi.mock('@components/PokemonList/PokemonList', () => ({
-  PokemonList: ({ pokemons }: PokemonListProps) => (
-    <ul>
-      {pokemons.map((p) => (
-        <li key={p.name}>{p.name}</li>
-      ))}
-    </ul>
-  ),
-}));
+const mockStore = configureStore({
+  reducer: {
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware),
+});
 
 vi.mock('@hooks/useSearchWithStorage', () => ({
   useSearchWithStorage: () => ({
-    searchTerm: 'pikachu',
+    searchTerm: '',
     setSearchTerm: vi.fn(),
   }),
 }));
 
-vi.mock('@components/PokemonLoader/PokemonLoader', () => ({
-  PokemonLoader: ({ children }: PokemonLoaderProps) => {
-    const fakeData = {
-      loading: false,
-      error: null,
-      info: { name: 'pikachu' },
-      pokemonList: [],
-    };
-    return children(fakeData);
-  },
-}));
-
 describe('Homepage component', () => {
-  it('renders Search and PokemonCard when info is available', () => {
-    render(<Homepage />);
-    expect(screen.getByPlaceholderText(/search/i)).toBeInTheDocument();
-    expect(screen.getByText(/PokemonCard: pikachu/i)).toBeInTheDocument();
+  beforeEach(() => {
+    vi.clearAllMocks();
+
+    mockUseGetPokemonByNameQuery.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      error: undefined,
+    });
+
+    mockUseGetAllPokemonsQuery.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      error: undefined,
+    });
+  });
+
+  const renderComponent = () => {
+    return render(
+      <Provider store={mockStore}>
+        <ThemeProvider>
+          <Homepage />
+        </ThemeProvider>
+      </Provider>
+    );
+  };
+
+
+  it('shows loading state when data is loading', () => {
+    mockUseGetPokemonByNameQuery.mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      error: undefined,
+    });
+
+    renderComponent();
+    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+  });
+
+  it('shows error message when there is an error', () => {
+    mockUseGetPokemonByNameQuery.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      error: { message: 'Error fetching data' },
+    });
+
+    renderComponent();
+    expect(screen.getByText(/Error loading data/i)).toBeInTheDocument();
+
   });
 });
