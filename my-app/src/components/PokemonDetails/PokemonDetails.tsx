@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import type { PokemonInfo, TypeEntry, AbilityEntry } from '@customTypes/pokemon';
 import { useTheme } from '@components/ThemeContext/useTheme';
 import {
-  useGetAllPokemonsQuery,
   useGetPokemonByNameQuery,
 } from '../../services/pokemonApi';
-import styles from './PokemonDetails.module.css'
+
 
 export const PokemonDetails = () => {
   const { name } = useParams();
@@ -32,9 +29,6 @@ if (!info) return null;
 
   return (
     <div style={{ padding: '1rem' }}>
-      <button onClick={()=>{
-
-      }}>close</button>
       <h2 className={theme === 'light' ? 'cardTitleLight' : 'cardTitleDark'}>
         Information about {name}
       </h2>
