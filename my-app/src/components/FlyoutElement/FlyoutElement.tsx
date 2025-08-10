@@ -1,10 +1,10 @@
-import styles from './FlyoutElement.module.css';
-import { Button } from '../Button/Button';
-import { useTheme } from '../ThemeContext/useTheme';
-import { useSelector } from 'react-redux';
-import { type RootState } from '../../app/store';
-import { resetCount } from '../../features/count/CountSlice';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useTheme } from '@components/ThemeContext/useTheme';
+import { Button } from '@components/Button/Button';
+import { resetCount } from '@features/count/CountSlice';
+import { type RootState } from '@app/store';
+import styles from './FlyoutElement.module.css';
 
 export const FlyoutElement = () => {
   const { theme } = useTheme();

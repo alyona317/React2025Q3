@@ -2,13 +2,13 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { PokemonList } from './PokemonList';
-import { useTheme } from '../ThemeContext/useTheme';
+import { useTheme } from '@components/ThemeContext/useTheme';
 
-vi.mock('../PokemonItem/PokemonItem', () => ({
+vi.mock('@components/PokemonItem/PokemonItem', () => ({
   PokemonItem: ({ name }: { name: string }) => <li>{name}</li>,
 }));
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   useTheme: vi.fn(),
 }));
 

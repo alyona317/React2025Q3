@@ -1,6 +1,5 @@
-// import { useState } from 'react';
 import styles from './Button.module.css';
-import { useTheme } from '../ThemeContext/useTheme';
+import { useTheme } from '@components/ThemeContext/useTheme';
 
 interface ButtonProps {
   name: string;
@@ -8,11 +7,6 @@ interface ButtonProps {
 }
 export const Button = ({ name, onClick }: ButtonProps) => {
   const { theme } = useTheme();
-  // const [isClicked, setIsClicked] = useState(false);
-
-  // const setInfo = () => {
-  //   setIsClicked(!isClicked);
-  // };
 
   return (
     <button

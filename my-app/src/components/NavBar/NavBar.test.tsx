@@ -3,15 +3,15 @@ import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './NavBar';
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   ThemeSwitcher: () => <div data-testid="theme-switcher">ThemeSwitcher</div>,
 }));
 
-vi.mock('../FlyoutElement/FlyoutElement', () => ({
+vi.mock('@components/FlyoutElement/FlyoutElement', () => ({
   FlyoutElement: () => <div data-testid="flyout-element">FlyoutElement</div>,
 }));
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   useTheme: () => ({
     theme: 'light',
   }),

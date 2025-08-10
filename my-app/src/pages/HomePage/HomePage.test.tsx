@@ -27,19 +27,19 @@ interface PokemonLoaderProps {
   pokemonName: string;
 }
 
-vi.mock('../../components/Search/Search', () => ({
+vi.mock('@components/Search/Search', () => ({
   Search: ({ onSearch }: SearchProps) => (
     <input placeholder="Search" onChange={(e) => onSearch(e.target.value)} />
   ),
 }));
 
-vi.mock('../../components/PokemonCard/PokemonCard', () => ({
+vi.mock('@components/PokemonCard/PokemonCard', () => ({
   PokemonCard: ({ info }: PokemonCardProps) => (
     <div>PokemonCard: {info.name}</div>
   ),
 }));
 
-vi.mock('../../components/PokemonList/PokemonList', () => ({
+vi.mock('@components/PokemonList/PokemonList', () => ({
   PokemonList: ({ pokemons }: PokemonListProps) => (
     <ul>
       {pokemons.map((p) => (
@@ -49,14 +49,14 @@ vi.mock('../../components/PokemonList/PokemonList', () => ({
   ),
 }));
 
-vi.mock('../../hooks/useSearchWithStorage', () => ({
+vi.mock('@hooks/useSearchWithStorage', () => ({
   useSearchWithStorage: () => ({
     searchTerm: 'pikachu',
     setSearchTerm: vi.fn(),
   }),
 }));
 
-vi.mock('../../components/PokemonLoader/PokemonLoader', () => ({
+vi.mock('@components/PokemonLoader/PokemonLoader', () => ({
   PokemonLoader: ({ children }: PokemonLoaderProps) => {
     const fakeData = {
       loading: false,

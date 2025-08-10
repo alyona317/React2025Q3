@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
+import { useTheme } from '@components/ThemeContext/useTheme';
 import styles from './Search.module.css';
-import { useTheme } from '../ThemeContext/useTheme';
 
 interface Props {
   onSearch: (pokemonName: string) => void;
@@ -18,6 +18,7 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
   const handleSubmit = () => {
     onSearch(inputValue.trim().toLowerCase());
   };
+  
   return (
     <div style={{ marginBottom: 20 }}>
       <input

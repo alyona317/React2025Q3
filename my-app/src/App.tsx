@@ -1,11 +1,11 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { About } from '@pages/About/About';
+import { Layout } from '@components/Layout';
+import { Homepage } from '@pages/HomePage/Homepage';
+import { Welcome } from '@pages/Welcome/Welcome';
+import { Error } from '@pages/Error/Error';
+import { PokemonDetails } from '@components/PokemonDetails/PokemonDetails';
 import './App.css';
-import { About } from './pages/About/About';
-import { Layout } from './components/Layout';
-import { Homepage } from './pages/HomePage/Homepage';
-import { Welcome } from './pages/Welcome/Welcome';
-import { Error } from './pages/Error/Error';
-import { PokemonDetails } from './components/PokemonDetails/PokemonDetails';
 
 export const App = () => {
   return (

@@ -1,6 +1,5 @@
+import { useTheme } from '@components/ThemeContext/useTheme';
 import styles from './ThemeSwitcher.module.css';
-
-import { useTheme } from '../ThemeContext/useTheme';
 
 export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();

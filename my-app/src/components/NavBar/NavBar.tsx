@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
-import { useTheme } from '../ThemeContext/useTheme';
+import { ThemeSwitcher } from '@components/ThemeSwitcher/ThemeSwitcher';
+import { useTheme } from '@components/ThemeContext/useTheme';
 
 export const Navbar: React.FC = () => {
   const { theme } = useTheme();

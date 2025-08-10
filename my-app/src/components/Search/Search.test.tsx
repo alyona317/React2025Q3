@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { Search } from './Search';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
-import { ThemeProvider } from '../ThemeContext/ThemeProvider';
+import { ThemeProvider } from '@components/ThemeContext/ThemeProvider';
 
 describe('Search', () => {
   it('renders input', () => {

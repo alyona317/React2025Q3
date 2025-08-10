@@ -3,7 +3,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { PokemonDetails } from './PokemonDetails';
 import { vi } from 'vitest';
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   useTheme: () => ({ theme: 'light' }),
 }));
 

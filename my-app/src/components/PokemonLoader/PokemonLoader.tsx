@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
+
 import type {
   PokemonInfo,
   NamedAPIResource,
   TypeEntry,
   AbilityEntry,
-} from '../../types/pokemon';
+} from '@customTypes/pokemon';
 
 interface PokemonLoaderProps {
   pokemonName: string;
@@ -26,7 +27,6 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
     NamedAPIResource[] | undefined
   >(undefined);
   const [info, setInfo] = useState<PokemonInfo>();
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,7 +41,6 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
   const fetchList = useCallback(async () => {
     setLoading(true);
     setError(null);
-
     try {
       const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000');
       if (!res.ok) throw new Error('Pokemon is not found');
@@ -58,7 +57,6 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
   const fetchPokemon = useCallback(async (name: string) => {
     setLoading(true);
     setError(null);
-
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
       if (!res.ok) throw new Error('Pokemon is not found');

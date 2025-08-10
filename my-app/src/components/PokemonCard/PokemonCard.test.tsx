@@ -1,10 +1,10 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { PokemonCard } from './PokemonCard';
-import { useTheme } from '../ThemeContext/useTheme';
-import type { PokemonInfo } from '../../types/pokemon';
+import { useTheme } from '@components/ThemeContext/useTheme';
+import type { PokemonInfo } from '@customTypes/pokemon';
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   useTheme: vi.fn(),
 }));
 

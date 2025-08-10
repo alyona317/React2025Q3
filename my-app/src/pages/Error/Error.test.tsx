@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Error } from './Error';
-import { ThemeProvider } from '../../components/ThemeContext/ThemeProvider';
+import { ThemeProvider } from '@components/ThemeContext/ThemeProvider';
 
 describe('Error Component', () => {
   beforeEach(() => {

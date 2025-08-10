@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../../components/ThemeContext/useTheme';
+import { useTheme } from '@components/ThemeContext/useTheme';
 
 export const About = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);

@@ -2,9 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
 import { PokemonItem } from './PokemonItem';
 import { Provider } from 'react-redux';
-import { store } from '../../app/store';
+import { store } from '@app/store';
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   useTheme: () => ({ theme: 'light' }),
 }));
 

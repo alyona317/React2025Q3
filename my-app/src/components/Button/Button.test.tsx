@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Button } from './Button';
-import { useTheme } from '../ThemeContext/useTheme';
+import { useTheme } from '@components/ThemeContext/useTheme';
 
-vi.mock('../ThemeContext/useTheme', () => ({
+vi.mock('@components/ThemeContext/useTheme', () => ({
   useTheme: vi.fn(),
 }));
 

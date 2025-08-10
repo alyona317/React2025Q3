@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import type { PokemonInfo, TypeEntry, AbilityEntry } from '../../types/pokemon';
-import { useTheme } from '../ThemeContext/useTheme';
+import type { PokemonInfo, TypeEntry, AbilityEntry } from '@customTypes/pokemon';
+import { useTheme } from '@components/ThemeContext/useTheme';
 
 export const PokemonDetails = () => {
   const { name } = useParams();
