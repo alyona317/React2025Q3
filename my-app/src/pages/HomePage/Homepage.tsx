@@ -29,31 +29,27 @@ export const Homepage = () => {
   const error = errorPokemon || errorAll;
 
   return (
-    <PokemonLoader pokemonName={searchTerm} searchTerm={searchTerm}>
-      {({ loading, error, pokemonList, info }) => (
-        <div style={{ display: 'flex' }}>
-          <div style={{ flex: 1 }}>
-            <Search onSearch={setSearchTerm} />
-            {loading && <p>Loading...</p>}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {info ? (
-              <PokemonCard info={info} />
-            ) : (
-              pokemonList && <PokemonList pokemons={pokemonList} />
-            )}
-          </div>
+    <div style={{ display: 'flex' }}>
+      <div style={{ flex: 1 }}>
+        <Search onSearch={setSearchTerm} />
+        {loading && <p>Loading...</p>}
+        {error && <p style={{ color: 'red' }}>{'Error loading data'}</p>}
+        {pokemonInfo ? (
+          <PokemonCard info={pokemonInfo} />
+        ) : (
+          allPokemons && <PokemonList pokemons={allPokemons.results} />
+        )}
+      </div>
 
-          <div
-            style={{
-              width: '400px',
-              borderLeft: '1px solid #ccc',
-              padding: '1rem',
-            }}
-          >
-            <Outlet />
-          </div>
-        </div>
-      )}
-    </PokemonLoader>
+      <div
+        style={{
+          width: '400px',
+          borderLeft: '1px solid #ccc',
+          padding: '1rem',
+        }}
+      >
+        <Outlet />
+      </div>
+    </div>
   );
 };

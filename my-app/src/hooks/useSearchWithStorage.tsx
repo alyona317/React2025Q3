@@ -8,6 +8,8 @@ export const useSearchWithStorage = (storageKey: string = 'search') => {
   useEffect(() => {
     if (searchTerm.trim()) {
       localStorage.setItem(storageKey, searchTerm);
+    } else {
+      localStorage.removeItem(storageKey);
     }
   }, [searchTerm, storageKey]);
 
