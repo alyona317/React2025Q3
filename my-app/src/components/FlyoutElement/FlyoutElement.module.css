@@ -1,0 +1,42 @@
+.textLight {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+.textDark {
+  color: #e0e0ff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.countLight {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+.countDark {
+  color: #e0e0ff;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 1rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.containerHide {
+  display: none;
+}

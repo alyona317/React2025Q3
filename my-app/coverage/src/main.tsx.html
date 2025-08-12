@@ -69,7 +69,21 @@
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -79,14 +93,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { App } from './App.tsx';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from './components/ThemeContext/ThemeProvider.tsx';
+import { store } from './app/store.ts';
+import { Provider } from 'react-redux';
 &nbsp;
 <span class="cstat-no" title="statement not covered" >createRoot(document.getElementById('root')!).render(</span>
   &lt;StrictMode&gt;
-    &lt;App /&gt;
+    &lt;Provider store={store}&gt;
+      &lt;BrowserRouter&gt;
+        &lt;ThemeProvider&gt;
+          &lt;App /&gt;
+        &lt;/ThemeProvider&gt;
+      &lt;/BrowserRouter&gt;
+    &lt;/Provider&gt;
   &lt;/StrictMode&gt;
 );
 &nbsp;</pre></td></tr></table></pre>
@@ -103,7 +133,7 @@ import { App } from './App.tsx';
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2025-07-23T19:12:40.909Z
+      at 2025-08-03T17:53:12.525Z
     </div>
     <script src="../prettify.js"></script>
     <script>

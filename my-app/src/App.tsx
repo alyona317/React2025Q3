@@ -1,11 +1,11 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { About } from '@pages/About/About';
+import { Layout } from '@components/Layout';
+import { Homepage } from '@pages/HomePage/Homepage';
+import { Welcome } from '@pages/Welcome/Welcome';
+import { Error } from '@pages/Error/Error';
+import { PokemonDetails } from '@components/PokemonDetails/PokemonDetails';
 import './App.css';
-import { About } from './pages/About';
-import { Layout } from './components/Layout';
-import { Homepage } from './components/HomePage';
-import { Welcome } from './pages/Welcome';
-import { Error } from './pages/Error';
-import { PokemonDetails } from './components/PokemonDetails';
 
 export const App = () => {
   return (
@@ -22,6 +22,7 @@ export const App = () => {
           <Route path="/error" element={<Error />} />
           <Route path="*" element={<Navigate to="/error" replace />} />
         </Route>
+        <Route path="*" element={<Navigate to="/error" replace />} />
       </Routes>
     </>
   );
