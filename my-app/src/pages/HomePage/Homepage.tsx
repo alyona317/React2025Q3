@@ -2,9 +2,9 @@ import { Outlet } from 'react-router-dom';
 import { Search } from '@components/Search/Search';
 import { PokemonCard } from '@components/PokemonCard/PokemonCard';
 import { PokemonList } from '@components/PokemonList/PokemonList';
-import { PokemonLoader } from '@components/PokemonLoader/PokemonLoader';
 import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
 import { useGetAllPokemonsQuery, useGetPokemonByNameQuery } from '../../services/pokemonApi';
+import styles from './HomePage.module.css'
 
 export const Homepage = () => {
   const { searchTerm, setSearchTerm } = useSearchWithStorage();
@@ -29,25 +29,23 @@ export const Homepage = () => {
   const error = errorPokemon || errorAll;
 
   return (
-    <div style={{ display: 'flex' }}>
-      <div style={{ flex: 1 }}>
+    <div className={styles.layout}>
+      <div className={styles.searchBar}>
         <Search onSearch={setSearchTerm} />
-        {loading && <p>Loading...</p>}
-        {error && <p style={{ color: 'red' }}>{'Error loading data'}</p>}
-        {pokemonInfo ? (
-          <PokemonCard info={pokemonInfo} />
-        ) : (
-          allPokemons && <PokemonList pokemons={allPokemons.results} />
-        )}
+      </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.mainContent}>
+          {loading && <p>Loading...</p>}
+          {error && <p className={styles.error}>Error loading data</p>}
+          {pokemonInfo ? (
+            <PokemonCard info={pokemonInfo} />
+          ) : (
+            allPokemons && <PokemonList pokemons={allPokemons.results} />
+          )}
+        </div>
       </div>
 
-      <div
-        style={{
-          width: '400px',
-          borderLeft: '1px solid #ccc',
-          padding: '1rem',
-        }}
-      >
+      <div className={styles.sidebar}>
         <Outlet />
       </div>
     </div>

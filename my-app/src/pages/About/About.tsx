@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '@components/ThemeContext/useTheme';
+import styles from './About.module.css'
 
 export const About = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const { theme } = useTheme();
+
   useEffect(() => {
     const fetchRandomImage = async () => {
       const randomId = Math.floor(Math.random() * 1010) + 1;
@@ -28,31 +28,19 @@ export const About = () => {
 
   return (
     <div>
-      <h1
-        className={
-          theme === 'light' ? 'about__title_light' : 'about__title_dark'
-        }
-      >
-        About us
-      </h1>
-      <div className="about">
-        <div className="about__info">
-          <p
-            className={
-              theme === 'light' ? 'about__text_light' : 'about__text_dark'
-            }
-          >
+      <h1 className={styles.aboutTitle}>About us</h1>
+      <div className={styles.about}>
+        <div className={styles.aboutInfo}>
+          <p className={styles.aboutText}>
             Hello, my name is Alyona. I'm junior frontend developer.I'm live in
             St. Petersburg. I like to travel, learn something new and
             videogames. Maybe someday I will work on one of videgames.{' '}
           </p>
-          <h3 className={theme === 'light' ? 'textLight' : 'texDark'}>
+          <h3 className={styles.aboutMidTitle}>
             To learn more about React course
           </h3>
           <a
-            className={
-              theme === 'light' ? 'about__link_light' : 'about__link_dark'
-            }
+            className={styles.aboutLink}
             href="https://rs.school/courses/reactjs"
           >
             Tap here
@@ -62,7 +50,7 @@ export const About = () => {
           {imageUrl ? (
             <img src={imageUrl} alt="profile photo" />
           ) : error ? (
-            <p style={{ color: 'red' }}>{error}</p>
+            <p className={styles.error}>{error}</p>
           ) : (
             <p>Loading image...</p>
           )}

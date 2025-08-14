@@ -1,0 +1,27 @@
+.layout {
+display: flex;
+  height: 100%;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--header-bg);
+}
+.mainContent {
+  flex: 1;
+  padding: 1rem;
+}
+
+.error {
+  color: red;
+}
+
+.sidebar {
+  width: 400px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+
