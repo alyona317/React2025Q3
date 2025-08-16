@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import type { NamedAPIResource } from '@customTypes/pokemon';
@@ -7,11 +8,12 @@ import { useTheme } from '@components/ThemeContext/useTheme';
 const ITEMS_PER_PAGE = 50;
 const STORAGE_KEY = 'currentPokemonPage';
 
-export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
-  pokemons,
-}) => {
+export const PokemonList: React.FC<{
+  pokemons: NamedAPIResource[];
+  onSelect?: (name: string) => void;
+}> = ({ pokemons, onSelect }) => {
   const totalPages = Math.ceil(pokemons.length / ITEMS_PER_PAGE);
-  
+
   const [searchParams, setSearchParams] = useSearchParams();
   const { theme } = useTheme();
 
@@ -53,7 +55,11 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
     <>
       <ul>
         {currentPageItems.map((p) => (
-          <PokemonItem key={p.name} name={p.name} />
+          <PokemonItem
+            key={p.name}
+            name={p.name}
+            onClick={() => onSelect?.(p.name)}
+          />
         ))}
       </ul>
       <div

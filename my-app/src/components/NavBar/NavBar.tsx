@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+'use client'
+import Link from 'next/link';
 import { ThemeSwitcher } from '@components/ThemeSwitcher/ThemeSwitcher';
 import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
 import styles from './NavBar.module.css'
@@ -10,7 +10,7 @@ export const Navbar: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <nav className={styles.nav}>
-        <Link to="/">
+        <Link href="/">
           <img
             src="https://brandeps.com/logo-download/P/Pokemon-logo-vector-01.svg"
             alt="Logo"
@@ -20,16 +20,13 @@ export const Navbar: React.FC = () => {
         </Link>
         <div className={styles.navList}>
           <Link
-            to="/search"
+            href="/search"
             className={styles.navLink}
-            onClick={()=> setSearchTerm('')}
+            onClick={() => setSearchTerm('')}
           >
             Search
           </Link>
-          <Link
-            to="/about"
-            className={styles.navLink}
-          >
+          <Link href="/about" className={styles.navLink}>
             About
           </Link>
         </div>

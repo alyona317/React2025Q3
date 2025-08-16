@@ -1,9 +1,12 @@
-import { useTheme } from '@components/ThemeContext/useTheme';
+'use client';
+import { useTheme } from 'next-themes';
 import styles from './ThemeSwitcher.module.css';
 
 export const ThemeSwitcher = () => {
-  const { theme, toggleTheme } = useTheme();
-
+  const { theme, setTheme } = useTheme();
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
   return (
     <div className={styles.container}>
       <span className={theme === 'light' ? styles.textLight : styles.textDark}>

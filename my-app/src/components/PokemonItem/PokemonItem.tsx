@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,13 +7,13 @@ import { increment, decrement } from '@features/count/CountSlice';
 import { type RootState } from '../../app/store';
 import styles from './PokemonItem.module.css';
 
-export const PokemonItem = (props: { name: string }) => {
+export const PokemonItem = (props: { name: string; onClick?: () => void }) => {
   const { theme } = useTheme();
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const checkedCount = useSelector(
-  (state: RootState) => state.counter.checkedCount
+    (state: RootState) => state.counter.checkedCount
   );
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export const PokemonItem = (props: { name: string }) => {
 
   return (
     <li
-      onClick={() => navigate(`${props.name}`)}
+      onClick={onClick}
       className={theme === 'light' ? styles.itemLight : styles.itemDark}
     >
       <input

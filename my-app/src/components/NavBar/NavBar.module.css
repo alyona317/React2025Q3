@@ -1,8 +1,10 @@
 .wrapper{
   width: 100%;
+  margin: 0 auto;
+
 }
 .nav {
-  max-width: 1200px;
+
 
   display: flex;
   justify-content: space-between;
@@ -28,12 +30,11 @@ padding: 0.75rem 1.5rem;
   gap: 20px;
 }
 
-a {
-  font-weight: 500;
-  text-decoration: inherit;
-}
+
 
 .navLink {
+    font-weight: 500;
+  text-decoration: inherit;
   color: var(--color-text);
   transition: all 0.3s ease;
   text-decoration: none;

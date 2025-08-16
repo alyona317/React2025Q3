@@ -1,3 +1,16 @@
 .container{
   padding: '1rem' 
 }
+
+.cardInfo {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+

@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect, type ReactNode } from 'react';
 import { ThemeContext } from './ThemeContext';
 
@@ -8,26 +9,32 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isThemeLoaded, setIsThemeLoaded] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme | null;
-    if (saved === 'light' || saved === 'dark') {
-      setTheme(saved);
-      document.documentElement.setAttribute('data-theme', saved);
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme') as Theme | null;
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved);
+        document.documentElement.setAttribute('data-theme', saved);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+      setIsThemeLoaded(true);
     }
-    setIsThemeLoaded(true);
   }, []);
 
   useEffect(() => {
-    if (!isThemeLoaded) return;
-    document.documentElement.setAttribute('data-theme', theme); 
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined' && isThemeLoaded) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
   }, [theme, isThemeLoaded]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev = prev === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
-  if (!isThemeLoaded) return null;
+
+  if (!isThemeLoaded) {
+    return <div style={{ visibility: 'hidden' }}>{children}</div>;
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
