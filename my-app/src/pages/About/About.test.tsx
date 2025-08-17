@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { About } from './About';
+import { About } from './page';
 import { ThemeProvider } from '@components/ThemeContext/ThemeProvider';
 
 describe('About Component', () => {

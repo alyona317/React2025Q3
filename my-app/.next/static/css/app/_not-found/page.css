@@ -1,0 +1,51 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/pages/not-found/not-found.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.not-found_container__c6hIN{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh; /* Занимает всю высоту экрана */
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.not-found_title__1_0_x {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 70px;
+  letter-spacing: -1px;
+  color: var(--color-text);
+  transition: all 0.1s ease-in-out;
+}
+
+.not-found_text__ft83U {
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  padding: 20px 0 100px 0;
+}
+
+.not-found_link__mgwrU{
+  text-decoration: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 17px 27px;
+  border: none;
+  background-color: var(--btn-color);
+  color: var(--btn-bg);
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  transition: all 0.3s ease-in-out;
+}
+.not-found_link__mgwrU:hover {
+  background-color:  var(--color-text-accent);
+  cursor: pointer;
+}
+

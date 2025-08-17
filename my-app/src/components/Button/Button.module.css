@@ -1,17 +1,6 @@
-.buttonLight {
-  background-color: var(--btn-bg-light);
-  color: var(--btn-color-light);
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-.buttonDark {
-  background-color: var(--btn-bg-dark);
-  color: var(--btn-color-dark);
+.button {
+  background-color: var(--btn-bg);
+  color: var(--btn-bg);
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 6px;
@@ -21,12 +10,10 @@
     color 0.3s ease;
 }
 
-.buttonLight:hover {
-  background-color: var(--btn-border-light);
+.button:hover {
+  background-color: var(--btn-border);
 }
-.buttonDark:hover {
-  background-color: var(--btn-border-dark);
-}
+
 .button:focus {
   outline: none;
 }

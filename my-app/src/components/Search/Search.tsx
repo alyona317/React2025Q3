@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { useTheme } from '@components/ThemeContext/useTheme';
@@ -18,7 +19,7 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
   const handleSubmit = () => {
     onSearch(inputValue.trim().toLowerCase());
   };
-  
+
   return (
     <div style={{ marginBottom: 20 }}>
       <input

@@ -1,9 +1,11 @@
+'use client';
 import { useState, useEffect } from 'react';
 
 export const useSearchWithStorage = (storageKey: string = 'search') => {
-  const [searchTerm, setSearchTerm] = useState(() => {
-    return localStorage.getItem(storageKey) || '';
-  });
+  const [searchTerm, setSearchTerm] = useState(''); 
+  useEffect(() => {
+    setSearchTerm(localStorage.getItem(storageKey) || '');
+  }, [storageKey]);
 
   useEffect(() => {
     if (searchTerm.trim()) {

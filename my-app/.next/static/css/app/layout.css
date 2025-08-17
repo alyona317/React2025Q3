@@ -1,0 +1,407 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/Footer/Footer.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.Footer_footer__4vzqH {
+  width: 100%;
+  padding: 2rem 0;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.Footer_container__Dj1D9 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Footer_links__LGHlK {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Footer_link__wByfM {
+  color: var(--color-text-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.Footer_link__wByfM:hover {
+  color: var(--color-text-hover);
+  text-decoration: underline;
+}
+
+
+.Footer_copyright__1v3uR {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .Footer_container__Dj1D9 {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .Footer_links__LGHlK {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/app/global.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+:root {
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --color-accent-yellow: #e8f000;
+  --color-accent-red: #d62828;
+
+  --primary-color: #4e89ff;
+  --accent-color: #ff6b6b;
+
+  
+}
+#root{
+    width: 100%;
+}
+:root[data-theme='light'] {
+  --color-bg: #fce78b;
+  --color-text: #2c2c2c;
+  --color-border: #e0e0e0;
+--color-text-hover:   #ff0000;
+
+--color-text-accent:  #ff0000 ;
+
+    --color-bg: #ffffff;
+  background-color: var(--color-bg-light);
+
+   --btn-bg: #f0f4f8;
+  --btn-color: #222;
+  --btn-border: #ccc;
+    --color-text: #000000;
+    --navLink-text:  #333;
+
+     --navLink-text-hover: #e8f000;
+
+}
+:root[data-theme='dark'] {
+  --color-bg: #1a1a1a;
+  --color-text: #f5f5f5;
+  --color-border: #333333;
+--color-text-hover:  #e8f000;
+--color-text-accent:  #e8f000 ;
+
+
+  background-color: var(--color-bg-dark);
+    --btn-bg: #1e1e2f;
+  --btn-color: #e0e0ff;
+  --btn-border: #2c2c47;
+    --color-text: #ffffff;
+      --color-bg: #1a1a1a;
+
+
+
+    
+}
+
+body {
+width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease;
+}
+.layout{
+  width: 100%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+flex-direction: column;
+
+}
+:root[data-theme='dark'] body {
+  background-color: var(--color-bg);
+}
+header {
+  width: 100%;
+
+
+}
+footer {
+  width: 100%;
+
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+.titleLight {
+  color: #333;
+}
+.titleDark {
+  color: #e0e0ff;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Error */
+.error__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  align-items: center;
+  gap: 20px;
+}
+
+.error_title_light {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 70px;
+  letter-spacing: -1px;
+  color: #333;
+  transition: all 0.1s ease-in-out;
+}
+.error_massage_light {
+  font-size: 40px;
+  letter-spacing: -1px;
+  color: #333;
+}
+.error_title_dark {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 70px;
+  letter-spacing: -1px;
+  color: #e0e0ff;
+  transition: all 0.1s ease-in-out;
+}
+.error_massage_dark {
+  font-size: 40px;
+  letter-spacing: -1px;
+  color: #e0e0ff;
+}
+
+
+
+/* Footer */
+footer {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.footerLight {
+  color: #333;
+}
+.footerDark {
+  color: #e0e0ff;
+}
+
+.button__pagination_light {
+  color: #333;
+
+  background-color: #f0eded;
+
+  transition: all 0.3s ease;
+}
+.button__pagination_light:hover {
+  color: #9c8000;
+
+  background-color: #d8db82;
+
+  transition: all 0.3s ease;
+}
+.button__pagination_dark {
+  color: #3a3a3a;
+  background-color: #e8f000;
+
+  transition: all 0.3s ease;
+}
+.button__pagination_dark:hover {
+  color: #999e00;
+  background-color: #e8ed5e;
+}
+.textLight {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+.textDark {
+  color: #e0e0ff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/ThemeSwitcher/ThemeSwitcher.module.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+.ThemeSwitcher_container__4qojM {
+  display: flex;
+  gap: 10px;
+}
+.ThemeSwitcher_switch__vAROq {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.ThemeSwitcher_switch__vAROq input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ThemeSwitcher_slider__Yp5yq {
+  position: absolute;
+  cursor: pointer;
+  background-color: #bcb5f9;
+  border-radius: 26px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.ThemeSwitcher_slider__Yp5yq::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: rgb(207, 0, 0);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .ThemeSwitcher_slider__Yp5yq {
+  background-color: #e8f000;
+}
+
+input:checked + .ThemeSwitcher_slider__Yp5yq::before {
+  transform: translateX(24px);
+}
+
+.ThemeSwitcher_textLight__fh8jM {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+.ThemeSwitcher_textDark__akvkf {
+  color: #e8f000;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/NavBar/NavBar.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.NavBar_wrapper__gqhqk{
+  width: 100%;
+  margin: 0 auto;
+
+}
+.NavBar_nav__d77WF {
+
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+padding: 0.75rem 1.5rem;
+  border-bottom: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: var(--color-bg);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+.NavBar_navLogo__LJa0N {
+  width: 5em;
+  transition: transform 0.3s ease;
+}
+.NavBar_navLogo__LJa0N:hover {
+  transform: scale(1.1);
+}
+
+.NavBar_navList__LiDlQ {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+
+.NavBar_navLink__KsXl4 {
+    font-weight: 500;
+  text-decoration: inherit;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+  text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    color: inherit;
+    transition: color 0.3s ease;
+
+}
+.NavBar_navLink__KsXl4:hover {
+  color:var(--color-text-hover);
+}
+.NavBar_navLink__KsXl4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-text-hover);
+      transition: width 0.3s ease;
+    }
+
+.NavBar_navLink__KsXl4:hover::after {
+      width: 100%;
+    }
