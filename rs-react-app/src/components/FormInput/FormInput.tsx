@@ -1,12 +1,25 @@
 import styles from './FormInput.module.css'
-
+import { useState } from 'react'
 
 export const FormInput = (props: any)=>{
-  const {label, onChange, id, ...inputProps} = props
+  const [focused, setFocused]= useState(false)
+  const {label, onChange, errorMassage, id, ...inputProps} = props;
+  const handleFocus = ()=>{
+    setFocused(true)
+  }
   return (
-    <div>
+    <div className={styles.inputContainer}>
       <label>{label}</label>
-      <input {...inputProps} onChange={onChange} className={styles.input} />
+      <input 
+      {...inputProps} 
+      onChange={onChange} 
+      className={styles.input} 
+      onBlur={handleFocus} 
+      focused ={focused.toString()}
+      onFocus={()=>
+        inputProps.name === "confirmPassword" && setFocused(true)}
+       />
+      <span className={styles.error}>{errorMassage}</span>
     </div>
   );
 }

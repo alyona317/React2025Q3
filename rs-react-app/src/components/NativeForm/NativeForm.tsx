@@ -17,10 +17,13 @@ type ValueKeys = keyof typeof values;
 
 type InputConfig = {
   id: number;
-  name: ValueKeys; // ✅ теперь name может быть только из values
-  placeholder:string;
+  name: ValueKeys; 
+  placeholder: string;
+  errorMassage: string;
   label: string;
+  pattern: string;
   type: string;
+  required: boolean
 };
   const inputs: InputConfig[] = [
     {
@@ -28,35 +31,52 @@ type InputConfig = {
       name: 'username',
       type: 'text',
       placeholder: 'Username',
+      errorMassage:
+        "Username should be 3-16 characters and shouldn't include any special character",
       label: 'Username',
+      pattern: '^[A-Za-z0-9]{3,16}$',
+      required: true,
     },
-    {
-      id: 2,
-      name: 'email',
-      type: 'text',
-      placeholder: 'email',
-      label: 'Email',
-    },
+    // {
+    //   id: 2,
+    //   name: 'email',
+    //   type: 'email',
+    //   placeholder: 'email',
+    //   errorMassage: 'It should be valid email',
+    //   label: 'Email',
+
+    //   required: true,
+    // },
     {
       id: 3,
       name: 'age',
       type: 'text',
       placeholder: 'Age',
+      errorMassage: 'It should be number',
       label: 'Age',
+      pattern: '^[0-9]{1,3}$',
+      required: true,
     },
     {
       id: 4,
       name: 'password',
       type: 'password',
       placeholder: 'Password',
+      errorMassage:
+        'Password should have 8 characters and it should include 1 number, 1 uppercased letter, 1 lowercased letter, 1 special character',
       label: 'Password',
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
     },
     {
       id: 5,
       name: 'confirmPassword',
       type: 'password',
       placeholder: 'Confirm Password',
+      errorMassage: 'Passwords dont match',
       label: 'Confirm Password',
+      pattern: values.password,
+      required: true,
     },
   ];
   const handleSabmit =(e:any)=>{
