@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { Button } from './components/Button/Button';
 import { NativeForm } from '@components/NativeForm/NativeForm';
+import { ReactForm } from '@components/ReactForm/ReactForm';
 import { Modal } from '@components/Modal/Modal';
 
 function App() {
@@ -28,8 +29,7 @@ function App() {
           </Modal>
 
           <Modal isOpen={isSecondOpen} onClose={() => setSecondOpen(false)}>
-            <h2>React Hook Form</h2>
-            <p>Здесь будет вторая форма</p>
+            <ReactForm/>
           </Modal>
         </div>
       </div>

@@ -1,107 +1,102 @@
 import { useRef, useState } from 'react';
-import styles from './NativeForm.module.css';
+import { useDispatch } from 'react-redux';
+import { formSchema } from '@components/formSchema';
 import { FormInput } from '@components/FormInput/FormInput';
-
+import { addFormData } from '../../store/formSlice';
+import type { AppDispatch } from '../../store/index';
+import styles from './NativeForm.module.css';
 
 export const NativeForm = () => {
-const [values, setValues] = useState({
-  username:'',
-  email: '',
-  age: '',
-  placeholder: '',
-  password: '',
-  confirmPassword: ''
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
 
-});
-type ValueKeys = keyof typeof values;
-
-type InputConfig = {
-  id: number;
-  name: ValueKeys; 
-  placeholder: string;
-  errorMassage: string;
-  label: string;
-  pattern: string;
-  type: string;
-  required: boolean
-};
-  const inputs: InputConfig[] = [
+  const inputs = [
     {
-      id: 1,
+      id: 'username',
       name: 'username',
       type: 'text',
       placeholder: 'Username',
-      errorMassage:
-        "Username should be 3-16 characters and shouldn't include any special character",
       label: 'Username',
-      pattern: '^[A-Za-z0-9]{3,16}$',
-      required: true,
     },
-    // {
-    //   id: 2,
-    //   name: 'email',
-    //   type: 'email',
-    //   placeholder: 'email',
-    //   errorMassage: 'It should be valid email',
-    //   label: 'Email',
-
-    //   required: true,
-    // },
     {
-      id: 3,
+      id: 'email',
+      name: 'email',
+      type: 'email',
+      placeholder: 'Email',
+      label: 'Email',
+    },
+    {
+      id: 'age',
       name: 'age',
-      type: 'text',
+      type: 'number',
       placeholder: 'Age',
-      errorMassage: 'It should be number',
       label: 'Age',
-      pattern: '^[0-9]{1,3}$',
-      required: true,
     },
     {
-      id: 4,
+      id: 'password',
       name: 'password',
-      type: 'password',
+      type: 'text',
       placeholder: 'Password',
-      errorMassage:
-        'Password should have 8 characters and it should include 1 number, 1 uppercased letter, 1 lowercased letter, 1 special character',
       label: 'Password',
-      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-      required: true,
     },
     {
-      id: 5,
+      id: 'confirmPassword',
       name: 'confirmPassword',
-      type: 'password',
+      type: 'text',
       placeholder: 'Confirm Password',
-      errorMassage: 'Passwords dont match',
       label: 'Confirm Password',
-      pattern: values.password,
-      required: true,
     },
   ];
-  const handleSabmit =(e:any)=>{
-    
-    e.preventDefault()
-    const data = new FormData(e.target)
-    console.log(data)
-  }
-  const onChange = (e:any)=>{
-    setValues({...values, [e.target.name]: e.target.value})
-  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitted(true);
+
+    const form = formRef.current;
+    if (!form) return;
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const parsed = formSchema.safeParse({
+      ...data,
+      age: Number(data.age),
+     
+    });
+
+    if (!parsed.success) {
+      const formErrors: Record<string, string> = {};
+      parsed.error.issues.forEach((issue) => {
+        if (issue.path[0]) formErrors[issue.path[0].toString()] = issue.message;
+      });
+      setErrors(formErrors);
+    } else {
+      setErrors({});
+      dispatch(addFormData(parsed.data));
+      console.log('✅ Valid data', parsed.data);
+      form.reset();
+      setSubmitted(false);
+    }
+  };
+
   return (
-    <div className={styles.formContainer}>
-    <h1>Enter your information</h1>
-      <form className={styles.form} onSubmit={handleSabmit}>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
-        <button className={styles.submitButton}>Submit</button>
-      </form>
-    </div>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={styles.form}
+      noValidate
+    >
+      {inputs.map((input) => (
+        <FormInput
+          key={input.id}
+          {...input}
+          submitted={submitted}
+          errorMessage={errors[input.name]}
+        />
+      ))}
+      <button type="submit" className={styles.submitButton}>
+        Submit
+      </button>
+    </form>
   );
 };
