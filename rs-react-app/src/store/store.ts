@@ -1,4 +1,4 @@
-import { createSlice,type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 type FormDataType = {
   name: string;
@@ -6,7 +6,6 @@ type FormDataType = {
   email: string;
   password: string;
   confirmPassword: string;
-
 };
 
 type FormState = {

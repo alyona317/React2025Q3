@@ -11,7 +11,6 @@ type ModalProps = {
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   const modalRoot = document.getElementById('modal-root')!;
 
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -24,9 +23,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 
   return ReactDOM.createPortal(
     <div className={styles.overlay} onClick={onClose}>
-      <div  onClick={(e) => e.stopPropagation()}>
-        {children}
-      </div>
+      <div onClick={(e) => e.stopPropagation()}>{children}</div>
     </div>,
     modalRoot
   );

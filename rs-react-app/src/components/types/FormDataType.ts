@@ -6,6 +6,5 @@ export type FormDataType = {
   confirmPassword: string;
   gender: 'male' | 'female' | 'other';
   acceptTerms: boolean;
-  picture: File | null;
   country: string;
 };

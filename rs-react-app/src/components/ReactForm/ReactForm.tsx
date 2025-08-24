@@ -2,8 +2,9 @@ import styles from './ReactForm.module.css';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-// import type { FormDataType } from '@components/types/FormDataType';
+import { useDispatch } from 'react-redux';
+import { addForm } from '../../store/formSlice';
+import { useState } from 'react';
 
 const schema = z
   .object({
@@ -40,6 +41,8 @@ const schema = z
 type FormDataType = z.infer<typeof schema>;
 
 export const ReactForm = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -48,8 +51,13 @@ export const ReactForm = () => {
     resolver: zodResolver(schema),
   });
   const onSubmit: SubmitHandler<FormDataType> = (data) => {
-    console.log(data);
+    dispatch(addForm(data));
+
+    setIsSubmitted(true);
   };
+  if (isSubmitted) {
+    return <div>Thank you! Your data has been submitted.</div>;
+  }
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className={styles.inputContainer}>

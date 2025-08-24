@@ -26,7 +26,6 @@ export const formSchema = z
       .regex(/[a-z]/, 'Password must contain a lowercase letter')
       .regex(/[^A-Za-z0-9]/, 'Password must contain a special character'),
     confirmPassword: z.string(),
-    
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",

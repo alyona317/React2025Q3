@@ -1,4 +1,4 @@
-export  type FormInputProps = {
+export type FormInputProps = {
   label: string;
   errorMessage: string;
   submitted: boolean;

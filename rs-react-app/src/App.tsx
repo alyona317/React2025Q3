@@ -29,7 +29,7 @@ function App() {
           </Modal>
 
           <Modal isOpen={isSecondOpen} onClose={() => setSecondOpen(false)}>
-            <ReactForm/>
+            <ReactForm />
           </Modal>
         </div>
       </div>

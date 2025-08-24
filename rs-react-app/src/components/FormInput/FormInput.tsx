@@ -1,7 +1,6 @@
-import styles from './FormInput.module.css'
-import { useState } from 'react'
-import type { FormInputProps } from '@components/types/FormInputProps'
-
+import styles from './FormInput.module.css';
+import { useState } from 'react';
+import type { FormInputProps } from '@components/types/FormInputProps';
 
 export const FormInput = ({
   label,

@@ -1,7 +1,6 @@
 import type { FormDataType } from '@components/types/FormDataType';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-
 type FormState = {
   forms: FormDataType[];
 };
@@ -14,11 +13,14 @@ const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {
-    addFormData: (state, action) => {
+    addForm: (state, action: PayloadAction<FormDataType>) => {
       state.forms.push(action.payload);
+    },
+    clearForms: (state) => {
+      state.forms = [];
     },
   },
 });
 
-export const { addFormData } = formSlice.actions;
+export const { addForm, clearForms } = formSlice.actions;
 export default formSlice.reducer;

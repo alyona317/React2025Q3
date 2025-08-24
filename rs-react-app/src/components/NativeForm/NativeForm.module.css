@@ -1,9 +1,9 @@
-.formContainer{
-display: flex;
-flex-direction: column;
-align-items: center;
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.formTitle{
+.formTitle {
   font-size: medium;
 }
 .form {
@@ -37,7 +37,6 @@ align-items: center;
   font-size: 14px;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
-  
 }
 
 .input:focus,

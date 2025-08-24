@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { formSchema } from '@components/formSchema';
 import { FormInput } from '@components/FormInput/FormInput';
-import { addFormData } from '../../store/formSlice';
+import { addForm } from '../../store/formSlice';
 import type { AppDispatch } from '../../store/index';
 import styles from './NativeForm.module.css';
 
@@ -61,7 +61,6 @@ export const NativeForm = () => {
     const parsed = formSchema.safeParse({
       ...data,
       age: Number(data.age),
-     
     });
 
     if (!parsed.success) {
@@ -72,7 +71,7 @@ export const NativeForm = () => {
       setErrors(formErrors);
     } else {
       setErrors({});
-      dispatch(addFormData(parsed.data));
+      dispatch(addForm(parsed.data));
       console.log('✅ Valid data', parsed.data);
       form.reset();
       setSubmitted(false);
