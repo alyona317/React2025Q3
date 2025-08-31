@@ -9,18 +9,18 @@ export const CountryList = () => {
   const dataset = co2DataResource.read();
 
   const filteredCountries: Country[] = useMemo(() => {
-    // создаём массив стран
-    let countries: Country[] = Object.entries(dataset).slice(0,20).map(([key, value]) => ({
-      country: value.country, // имя страны
-      isoCode: value.iso_code, // ISO код
-      population: value.data
-        .slice()
-        .reverse()
-        .find((d) => d.population !== undefined)?.population,
-      data: value.data,
-    }));
+    let countries: Country[] = Object.entries(dataset)
+      .slice(0, 20)
+      .map(([key, value]) => ({
+        country: value.country,
+        isoCode: value.iso_code,
+        population: value.data
+          .slice()
+          .reverse()
+          .find((d) => d.population !== undefined)?.population,
+        data: value.data,
+      }));
 
-    // если выбран год, фильтруем данные
     if (filter.year) {
       countries = countries
         .map((country) => ({
@@ -35,7 +35,7 @@ export const CountryList = () => {
 
   return (
     <>
-      <FilterPanel onChange={({year}) => setFilter({ year })} />
+      <FilterPanel onChange={({ year }) => setFilter({ year })} />
       <ul>
         {filteredCountries.map((c) => (
           <CountryCard key={c.isoCode || c.country} country={c} />

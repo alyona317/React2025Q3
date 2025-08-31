@@ -16,8 +16,8 @@ export type CountryDataset = YearlyData[];
 export type Dataset = Record<
   string,
   {
-    country: string; 
-    iso_code?: string; 
+    country: string;
+    iso_code?: string;
     data: YearlyData[];
   }
 >;
