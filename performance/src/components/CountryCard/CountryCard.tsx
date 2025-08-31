@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './CountryCard.module.css';
 import type { Country } from 'types/co2';
 
@@ -5,7 +6,7 @@ interface CountryCardProps {
   country: Country;
 }
 
-export const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
+export const CountryCard: React.FC<CountryCardProps> = React.memo(({ country }) => {
   return (
     <div className={styles.card}>
       <h2 className={styles.title}>{country.country}</h2>
@@ -36,4 +37,4 @@ export const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
       </table>
     </div>
   );
-};
+})
