@@ -1,5 +1,8 @@
 import { createResource } from '../utils/createResource';
 import type { Dataset } from 'types/co2';
+import type { CO2Filters } from 'types/co2Filters';
+
+
 
 async function fetchCO2Data(): Promise<Dataset> {
   const response = await fetch(

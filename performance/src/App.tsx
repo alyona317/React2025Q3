@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Suspense } from 'react';
 import { co2DataResource } from './api/dataLoader';
 import type { Dataset } from 'types/co2';
-import { SkeletonImg } from '@components/skeleton/skeleton';
+import { SkeletonImg } from '@components/Skeleton/Skeleton';
+import { FilterPanel } from '@components/FilterPanel/FilterPanel';
 import { CountryList } from '@components/CountryList/CountryList';
+import type { CO2Filters } from 'types/co2Filters';
 import './App.css'
 
 // function CountriesList() {
@@ -23,15 +25,16 @@ import './App.css'
 // }
 
 function App() {
-
+  const [filters, setFilters] = useState<CO2Filters>({});
   return (
     <>
+      <h1>CO2 information</h1>
+
       <div>
-        <Suspense fallback={<SkeletonImg/>}>
+        <Suspense fallback={<SkeletonImg />}>
           <CountryList />
         </Suspense>
       </div>
-      <h1>Vite + React</h1>
     </>
   );
 }

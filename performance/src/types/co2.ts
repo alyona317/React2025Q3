@@ -1,5 +1,5 @@
 export interface Country {
-  name: string;
+  country: string;
   isoCode?: string;
   population?: number;
   data: YearlyData[];
