@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '@components/ThemeContext/useTheme';
+import useSound from 'use-sound';
+import clickSound from '@src/assets/sound.mp3';
+
 
 export const About = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { theme } = useTheme();
+  const [play] = useSound(clickSound);
+  
   useEffect(() => {
     const fetchRandomImage = async () => {
       const randomId = Math.floor(Math.random() * 1010) + 1;
@@ -54,6 +59,10 @@ export const About = () => {
               theme === 'light' ? 'about__link_light' : 'about__link_dark'
             }
             href="https://rs.school/courses/reactjs"
+            onClick={(e) => {
+              e.preventDefault()
+              play()
+            }}
           >
             Tap here
           </a>
