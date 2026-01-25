@@ -59,8 +59,7 @@ export const About = () => {
               theme === 'light' ? 'about__link_light' : 'about__link_dark'
             }
             href="https://rs.school/courses/reactjs"
-            onClick={(e) => {
-              e.preventDefault()
+            onMouseEnter={() => {
               play()
             }}
           >

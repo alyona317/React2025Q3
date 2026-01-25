@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import type { NamedAPIResource } from '@customTypes/pokemon';
 import { PokemonItem } from '@components/PokemonItem/PokemonItem';
 import { useTheme } from '@components/ThemeContext/useTheme';
+import useSound from 'use-sound';
+import clickSound from '@src/assets/sound.mp3';
 
 const ITEMS_PER_PAGE = 50;
 const STORAGE_KEY = 'currentPokemonPage';
@@ -14,6 +16,8 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
   
   const [searchParams, setSearchParams] = useSearchParams();
   const { theme } = useTheme();
+  const [play] = useSound(clickSound);
+  
 
   const getInitialPage = (): number => {
     const urlPage = Number(searchParams.get('page'));
@@ -66,12 +70,16 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
       >
         <button
           onClick={handlePrev}
+          onMouseEnter={() => {
+            play()
+          }}
           disabled={currentPage === 1}
           className={
             theme === 'light'
               ? 'button__pagination_light'
               : 'button__pagination_dark'
           }
+
         >
           Back
         </button>
@@ -80,6 +88,9 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
         </span>
         <button
           onClick={handleNext}
+          onMouseEnter={() => {
+            play()
+}}
           disabled={currentPage === totalPages}
           className={
             theme === 'light'

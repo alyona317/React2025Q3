@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { useTheme } from '@components/ThemeContext/useTheme';
 import styles from './Search.module.css';
-
+import useSound from 'use-sound';
+import clickSound from '@src/assets/sound.mp3';
 interface Props {
   onSearch: (pokemonName: string) => void;
 }
@@ -10,6 +11,7 @@ interface Props {
 export const Search: React.FC<Props> = ({ onSearch }) => {
   const [inputValue, setInputValue] = useState('');
   const { theme } = useTheme();
+        const [play] = useSound(clickSound);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -33,6 +35,10 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
         onClick={handleSubmit}
         style={{ marginLeft: 10, padding: '0.5rem 1rem' }}
         className={theme === 'light' ? styles.buttonLight : styles.buttonDark}
+                    onMouseEnter={() => {
+              play()
+            }}
+
       >
         Search
       </button>
