@@ -1,7 +1,6 @@
 import styles from './Button.module.css';
 import { useTheme } from '@components/ThemeContext/useTheme';
 
-
 interface ButtonProps {
   name: string;
   onClick: () => void;

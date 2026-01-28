@@ -4,7 +4,10 @@ import { PokemonCard } from '@components/PokemonCard/PokemonCard';
 import { PokemonList } from '@components/PokemonList/PokemonList';
 import { PokemonLoader } from '@components/PokemonLoader/PokemonLoader';
 import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
-import { useGetAllPokemonsQuery, useGetPokemonByNameQuery } from '../../services/pokemonApi';
+import {
+  useGetAllPokemonsQuery,
+  useGetPokemonByNameQuery,
+} from '../../services/pokemonApi';
 
 export const Homepage = () => {
   const { searchTerm, setSearchTerm } = useSearchWithStorage();

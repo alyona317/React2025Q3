@@ -12,7 +12,7 @@ export const PokemonItem = (props: { name: string }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const checkedCount = useSelector(
-  (state: RootState) => state.counter.checkedCount
+    (state: RootState) => state.counter.checkedCount
   );
 
   useEffect(() => {

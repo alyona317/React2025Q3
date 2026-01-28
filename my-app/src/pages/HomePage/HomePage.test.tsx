@@ -5,13 +5,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Homepage } from './Homepage';
 import { ThemeProvider } from '@components/ThemeContext/ThemeProvider';
 
-
 const mockUseGetPokemonByNameQuery = vi.fn();
 const mockUseGetAllPokemonsQuery = vi.fn();
 
-
 vi.mock('../../services/pokemonApi', async (importOriginal) => {
-const actual = (await importOriginal()) as object;
+  const actual = (await importOriginal()) as object;
   return {
     ...actual,
     useGetPokemonByNameQuery: () => mockUseGetPokemonByNameQuery(),
@@ -62,7 +60,6 @@ describe('Homepage component', () => {
     );
   };
 
-
   it('shows loading state when data is loading', () => {
     mockUseGetPokemonByNameQuery.mockReturnValue({
       data: undefined,
@@ -83,6 +80,5 @@ describe('Homepage component', () => {
 
     renderComponent();
     expect(screen.getByText(/Error loading data/i)).toBeInTheDocument();
-
   });
 });

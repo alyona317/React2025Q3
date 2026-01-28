@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@components/ThemeContext/useTheme';
 import useSound from 'use-sound';
 import clickSound from '@src/assets/sound.mp3';
-
+import { PokemonCard1 } from '@components/PokemonCard/PokemonCard1';
 
 export const About = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const { theme } = useTheme();
   const [play] = useSound(clickSound);
-  
+
   useEffect(() => {
     const fetchRandomImage = async () => {
       const randomId = Math.floor(Math.random() * 1010) + 1;
@@ -41,6 +41,7 @@ export const About = () => {
         About us
       </h1>
       <div className="about">
+        <PokemonCard1 />
         <div className="about__info">
           <p
             className={
@@ -60,7 +61,7 @@ export const About = () => {
             }
             href="https://rs.school/courses/reactjs"
             onMouseEnter={() => {
-              play()
+              play();
             }}
           >
             Tap here

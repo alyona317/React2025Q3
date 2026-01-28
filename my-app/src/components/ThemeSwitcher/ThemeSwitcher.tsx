@@ -5,10 +5,10 @@ import clickSound from '@src/assets/sound.mp3';
 
 export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
-      const [play] = useSound(clickSound);
+  const [play] = useSound(clickSound);
 
   return (
-    <div className={styles.container} >
+    <div className={styles.container}>
       <span className={theme === 'light' ? styles.textLight : styles.textDark}>
         Light
       </span>
@@ -17,8 +17,8 @@ export const ThemeSwitcher = () => {
           type="checkbox"
           checked={theme === 'dark'}
           onChange={() => {
-            toggleTheme()
-            play()
+            toggleTheme();
+            play();
           }}
         />
         <span className={styles.slider}></span>

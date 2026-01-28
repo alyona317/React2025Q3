@@ -1,31 +1,27 @@
 import { useParams } from 'react-router-dom';
 import { useTheme } from '@components/ThemeContext/useTheme';
-import {
-  useGetPokemonByNameQuery,
-} from '../../services/pokemonApi';
-
+import { useGetPokemonByNameQuery } from '../../services/pokemonApi';
 
 export const PokemonDetails = () => {
   const { name } = useParams();
 
   const { theme } = useTheme();
 
-const {
-  data: info,
-  error,
-  isLoading,
-} = useGetPokemonByNameQuery(name ?? '', {
-  skip: !name,
-});
+  const {
+    data: info,
+    error,
+    isLoading,
+  } = useGetPokemonByNameQuery(name ?? '', {
+    skip: !name,
+  });
 
-if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
 
-if (error) {
-  return <p>Error loading Pokemon details.</p>;
-}
+  if (error) {
+    return <p>Error loading Pokemon details.</p>;
+  }
 
-if (!info) return null;
-
+  if (!info) return null;
 
   return (
     <div style={{ padding: '1rem' }}>

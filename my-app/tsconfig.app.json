@@ -16,7 +16,6 @@
       "@features/*": ["features/*"],
       "@app/*": ["app/*"]
     },
-  
 
     /* Bundler mode */
     "moduleResolution": "bundler",

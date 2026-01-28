@@ -9,13 +9,16 @@ import clickSound from '@src/assets/sound.mp3';
 export const Navbar: React.FC = () => {
   const { searchTerm, setSearchTerm } = useSearchWithStorage();
   const { theme } = useTheme();
-    const [play] = useSound(clickSound);
+  const [play] = useSound(clickSound);
   return (
     <div className="wrapper">
       <nav className="nav">
-        <Link to="/" onMouseEnter={() => {
-              play()
-            }}>
+        <Link
+          to="/"
+          onMouseEnter={() => {
+            play();
+          }}
+        >
           <img
             src="https://brandeps.com/logo-download/P/Pokemon-logo-vector-01.svg"
             alt="Logo"
@@ -27,9 +30,9 @@ export const Navbar: React.FC = () => {
           <Link
             to="/search"
             className={theme === 'light' ? 'nav__link_light' : 'nav__link_dark'}
-            onClick={()=> setSearchTerm('')}
-onMouseEnter={() => {
-              play()
+            onClick={() => setSearchTerm('')}
+            onMouseEnter={() => {
+              play();
             }}
           >
             Search
@@ -38,7 +41,7 @@ onMouseEnter={() => {
             to="/about"
             className={theme === 'light' ? 'nav__link_light' : 'nav__link_dark'}
             onMouseEnter={() => {
-              play()
+              play();
             }}
           >
             About

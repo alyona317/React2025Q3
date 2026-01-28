@@ -7,7 +7,6 @@ import { PokemonDetails } from './PokemonDetails';
 import { vi } from 'vitest';
 import { ThemeProvider } from '@components/ThemeContext/ThemeProvider';
 
-
 vi.mock('@/components/ThemeContext/useTheme', () => ({
   useTheme: () => ({ theme: 'light' }),
 }));
@@ -17,17 +16,15 @@ vi.mock('react-router-dom', () => ({
   useParams: vi.fn(() => ({ name: 'pikachu' })),
 }));
 
-
 const mockUseGetPokemonByNameQuery = vi.fn();
 
 vi.mock('../../services/pokemonApi', async (importOriginal) => {
   const actual = (await importOriginal()) as object;
-    return {
+  return {
     ...actual,
-      useGetPokemonByNameQuery: () => mockUseGetPokemonByNameQuery(),
-    }
+    useGetPokemonByNameQuery: () => mockUseGetPokemonByNameQuery(),
+  };
 });
-
 
 const mockStore = configureStore({
   reducer: {

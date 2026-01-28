@@ -13,11 +13,10 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
   pokemons,
 }) => {
   const totalPages = Math.ceil(pokemons.length / ITEMS_PER_PAGE);
-  
+
   const [searchParams, setSearchParams] = useSearchParams();
   const { theme } = useTheme();
   const [play] = useSound(clickSound);
-  
 
   const getInitialPage = (): number => {
     const urlPage = Number(searchParams.get('page'));
@@ -71,7 +70,7 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
         <button
           onClick={handlePrev}
           onMouseEnter={() => {
-            play()
+            play();
           }}
           disabled={currentPage === 1}
           className={
@@ -79,7 +78,6 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
               ? 'button__pagination_light'
               : 'button__pagination_dark'
           }
-
         >
           Back
         </button>
@@ -89,8 +87,8 @@ export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
         <button
           onClick={handleNext}
           onMouseEnter={() => {
-            play()
-}}
+            play();
+          }}
           disabled={currentPage === totalPages}
           className={
             theme === 'light'
