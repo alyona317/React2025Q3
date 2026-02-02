@@ -18,6 +18,14 @@
   --btn-bg-dark: #1e1e2f;
   --btn-color-dark: #e0e0ff;
   --btn-border-dark: #2c2c47;
+
+  --yellow-color: #FFCB08;
+  --blue-color-light: #3561AD;
+  --blue-color: 	#0B4DA2;
+  --blue-color-dark: 	#07224E;
+  --white-color: #FFFFFF;
+  --red-color: 	#E21C25;
+
 }
 :root[data-theme='light'] {
   background-color: var(--color-bg-light);
@@ -321,7 +329,7 @@ footer {
 .cardContainer {
   width: 253px;
   height: 381px;
-  background-color: #353535;
+  background-color: var(--blue-color-light);
   border-radius: 20px;
   padding: 10px;
   box-sizing: border-box;
@@ -344,21 +352,23 @@ footer {
 .cardImg {
   height: 50%;
   width: 100%;
-  background-color: #26c142;
+  background-color: white;
   position: relative;
 }
 .cardDescription {
   height: 50%;
   width: 100%;
-  background-color: #0707c9;
+  background-color: var(--yellow-color);
   display: flex;
   flex-direction: column;
+  color: 	#07224E;
 }
 .pokemonNumberContainer {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #646cff;
+  background-color: var(--red-color);
+  color: 	#07224E ;
   padding: 10px;
   border-radius: 50%;
   width: 30px; /* Ширина = padding 10px * 2 + ширина числа 20px = 40px */
@@ -375,6 +385,7 @@ footer {
 .pokemonName {
   font-size: larger;
   font-weight: 800;
+  color: var(--blue-color-dark);
 }
 .tagContainer {
   display: flex;
@@ -383,7 +394,7 @@ footer {
   padding: 0 7px;
 }
 .pokemonTag {
-  background-color: #646cff;
+  background-color: var(--blue-color-light);
   padding: 2px 5px;
   border-radius: 5px;
   font-size: small;
@@ -392,4 +403,5 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: 	white;
 }
