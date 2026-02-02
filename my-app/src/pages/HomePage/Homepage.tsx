@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Search } from '@components/Search/Search';
 import { PokemonCard } from '@components/PokemonCard/PokemonCard';
+import {PokemonCard1} from '@components/PokemonCard/PokemonCard1';
 import { PokemonList } from '@components/PokemonList/PokemonList';
 import { PokemonLoader } from '@components/PokemonLoader/PokemonLoader';
 import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
@@ -38,7 +39,7 @@ export const Homepage = () => {
         {loading && <p>Loading...</p>}
         {error && <p style={{ color: 'red' }}>{'Error loading data'}</p>}
         {pokemonInfo ? (
-          <PokemonCard info={pokemonInfo} />
+          <PokemonCard1 info={pokemonInfo} />
         ) : (
           allPokemons && <PokemonList pokemons={allPokemons.results} />
         )}

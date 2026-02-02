@@ -19,6 +19,9 @@ export const pokemonApi = createApi({
       query: (name: string) => `pokemon/${name}`,
       transformResponse: (response: any): PokemonInfo => {
         return {
+          name: response.name,
+          number: response.id.toString().padStart(3, '0'),
+          imageUrl: response.sprites.other['official-artwork'].front_default,
           sprite: response.sprites.front_default,
           types: response.types.map((t: TypeEntry) => t.type.name),
           height: response.height,

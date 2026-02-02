@@ -41,7 +41,6 @@ export const About = () => {
         About us
       </h1>
       <div className="about">
-        <PokemonCard1 />
         <div className="about__info">
           <p
             className={

@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react';
 
 export interface PokemonInfo {
+  name: string;
+  number: string;
+  imageUrl: string;
   sprite: string;
   types: string[];
   height: number;
