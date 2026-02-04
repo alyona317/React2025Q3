@@ -6,7 +6,7 @@ import { useTheme } from '@components/ThemeContext/useTheme';
 import useSound from 'use-sound';
 import clickSound from '@src/assets/sound.mp3';
 
-const ITEMS_PER_PAGE = 50;
+const ITEMS_PER_PAGE = 12;
 const STORAGE_KEY = 'currentPokemonPage';
 
 export const PokemonList: React.FC<{ pokemons: NamedAPIResource[] }> = ({
