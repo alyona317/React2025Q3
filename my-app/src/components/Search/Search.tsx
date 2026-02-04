@@ -22,13 +22,12 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
   };
 
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div className= {styles.inputContainer}>
       <input
         type="text"
         value={inputValue}
         onChange={handleChange}
         placeholder="Enter pokemon's name"
-        style={{ padding: '0.5rem', width: 200 }}
         className={theme === 'light' ? styles.inputLight : styles.inputDark}
       />
       <button
