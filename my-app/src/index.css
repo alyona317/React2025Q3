@@ -271,6 +271,42 @@ a {
   color: #999e00;
 }
 
+/* Homepage */
+.homepageContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.homepageContent {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Левая часть растягивается, правая - по контенту */
+  gap: 2rem;
+  transition: grid-template-columns 0.5s ease;
+  position: relative;
+}
+
+/* Когда есть выбранный покемон (Outlet не пустой) */
+.homepageContent:has(> div:last-child:not(:empty)) {
+  grid-template-columns: 1fr 400px; /* Левая часть, правая 400px */
+}
+
+
+/* Правая часть (Outlet) */
+.homepageContent > div:last-child {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+/* Когда есть контент в Outlet */
+.homepageContent > div:last-child:not(:empty) {
+  min-width: 400px;
+  opacity: 1;
+}
+
 /* PokemonCard an Details */
 .cardInfoLight {
   font-size: 1rem;
@@ -407,6 +443,7 @@ footer {
   font-size: larger;
   font-weight: 800;
   color: var(--blue-color-dark);
+  margin: 0;
 }
 .tagContainer {
   display: flex;
@@ -425,4 +462,7 @@ footer {
   align-items: center;
   justify-content: center;
   color: 	white;
+}
+.pokemonAbilities{
+margin: 5px 0 0 0;
 }
