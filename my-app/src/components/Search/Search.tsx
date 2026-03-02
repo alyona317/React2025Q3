@@ -20,6 +20,11 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
   const handleSubmit = () => {
     onSearch(inputValue.trim().toLowerCase());
   };
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSubmit();
+    }
+  };
 
   return (
     <div className= {styles.inputContainer}>
@@ -27,6 +32,7 @@ export const Search: React.FC<Props> = ({ onSearch }) => {
         type="text"
         value={inputValue}
         onChange={handleChange}
+        onKeyDown={handleKeyPress}
         placeholder="Enter pokemon's name"
         className={theme === 'light' ? styles.inputLight : styles.inputDark}
       />
