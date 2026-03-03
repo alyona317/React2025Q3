@@ -22,7 +22,6 @@ export const App = () => {
           </Route>
           <Route path="pokemon/:name" element={<PokemonSearchResult />} />
 
-
           <Route path="/error" element={<Error />} />
           <Route path="*" element={<Navigate to="/error" replace />} />
         </Route>

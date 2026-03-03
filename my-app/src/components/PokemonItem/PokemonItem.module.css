@@ -1,4 +1,3 @@
-
 /* light theme */
 .itemLight {
   display: flex;
@@ -14,14 +13,14 @@
 }
 
 .itemLight:hover {
-  background-color:  #FFCB08;
+  background-color: #ffcb08;
 }
 
 .checkboxLight {
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 2.5px solid #E21C25;
+  border: 2.5px solid #e21c25;
   border-radius: 50%;
   position: relative;
   cursor: pointer;
@@ -31,11 +30,9 @@
 }
 
 .checkboxLight:checked {
-  background-color: #E21C25;
-  border-color: #E21C25;
+  background-color: #e21c25;
+  border-color: #e21c25;
 }
-
-
 
 .nameLight {
   font-size: 1rem;
@@ -51,7 +48,7 @@
   gap: 12px;
   padding: 10px 10px;
   border-radius: 20px;
-  
+
   color: #e0e0ff;
   transition:
     background-color 0.3s ease,
@@ -61,7 +58,7 @@
 }
 
 .itemDark:hover {
-  background-color: #0B4DA2;
+  background-color: #0b4da2;
 }
 
 .checkboxDark {
@@ -72,7 +69,7 @@
   position: relative;
   cursor: pointer;
 
-  border: 2.5px solid #FFCB08;
+  border: 2.5px solid #ffcb08;
   background-color: transparent;
   transition:
     background-color 0.3s ease,
@@ -80,8 +77,8 @@
 }
 
 .checkboxDark:checked {
-  background-color: #FFCB08;
-  border-color: #FFCB08;
+  background-color: #ffcb08;
+  border-color: #ffcb08;
 }
 
 .checkboxDark:checked::after {

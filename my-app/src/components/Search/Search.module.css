@@ -3,7 +3,7 @@
   color: var(--btn-color-light);
   padding: 10px 20px;
   font-size: 1rem;
-  border: 2.5px solid var(--yellow-color); 
+  border: 2.5px solid var(--yellow-color);
   border-radius: 20px;
   cursor: pointer;
   transition:
@@ -32,23 +32,23 @@
 .button:focus {
   outline: none;
 }
-.inputLight{
-padding: 0.5rem;
-border: 2.5px solid var(--yellow-color); 
-border-radius: 20px;
-font-size: 1rem;
-/* outline: 2.5px solid var(--red-color);  */
+.inputLight {
+  padding: 0.5rem;
+  border: 2.5px solid var(--yellow-color);
+  border-radius: 20px;
+  font-size: 1rem;
+  /* outline: 2.5px solid var(--red-color);  */
 }
 .inputLight:focus {
-outline: 2.5px solid var(--red-color); 
-border: 2.5px solid transparent; 
+  outline: 2.5px solid var(--red-color);
+  border: 2.5px solid transparent;
 }
 
-.inputContainer{
-margin-bottom: 20px;
+.inputContainer {
+  margin-bottom: 20px;
 
-display: flex;
+  display: flex;
 
-justify-content: center;
-width: 100%;
+  justify-content: center;
+  width: 100%;
 }

@@ -6,11 +6,11 @@ import { FlyoutElement } from '@components/FlyoutElement/FlyoutElement';
 export const Layout = () => {
   const { theme } = useTheme();
   return (
-    <div className='layout'>
+    <div className="layout">
       <Navbar />
-      <div className='mainContent'>
-      <Outlet />
-      <FlyoutElement />
+      <div className="mainContent">
+        <Outlet />
+        <FlyoutElement />
       </div>
 
       <footer className={theme === 'light' ? 'footerLight' : 'footerDark'}>

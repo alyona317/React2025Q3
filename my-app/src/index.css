@@ -19,13 +19,12 @@
   --btn-color-dark: #e0e0ff;
   --btn-border-dark: #2c2c47;
 
-  --yellow-color: #FFCB08;
-  --blue-color-light: #3561AD;
-  --blue-color: 	#0B4DA2;
-  --blue-color-dark: 	#07224E;
-  --white-color: #FFFFFF;
-  --red-color: 	#E21C25;
-
+  --yellow-color: #ffcb08;
+  --blue-color-light: #3561ad;
+  --blue-color: #0b4da2;
+  --blue-color-dark: #07224e;
+  --white-color: #ffffff;
+  --red-color: #e21c25;
 }
 :root[data-theme='light'] {
   background-color: var(--color-bg-light);
@@ -51,16 +50,16 @@ body {
   background-color: var(--color-bg-light);
   transition: background-color 0.3s ease;
 }
-.layout{
-min-width: 320px;
-display: flex;
-flex-direction: column;
-min-height: 100vh; 
+.layout {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.mainContent{
+.mainContent {
   flex: 1;
-        padding: 2rem;
-        width: 100%;
+  padding: 2rem;
+  width: 100%;
 }
 :root[data-theme='dark'] body {
   background-color: var(--color-bg-dark);
@@ -95,8 +94,6 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
-
 
 /* About */
 .about {
@@ -272,7 +269,7 @@ a {
 }
 
 /* Homepage */
-.homepageContainer{
+.homepageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,7 +288,6 @@ a {
 .homepageContent:has(> div:last-child:not(:empty)) {
   grid-template-columns: 1fr 400px; /* Левая часть, правая 400px */
 }
-
 
 /* Правая часть (Outlet) */
 .homepageContent > div:last-child {
@@ -418,14 +414,14 @@ footer {
   background-color: var(--yellow-color);
   display: flex;
   flex-direction: column;
-  color: 	#07224E;
+  color: #07224e;
 }
 .pokemonNumberContainer {
   position: absolute;
   top: 10px;
   right: 10px;
   background-color: var(--red-color);
-  color: 	#07224E ;
+  color: #07224e;
   padding: 10px;
   border-radius: 50%;
   width: 30px; /* Ширина = padding 10px * 2 + ширина числа 20px = 40px */
@@ -461,8 +457,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: 	white;
+  color: white;
 }
-.pokemonAbilities{
-margin: 5px 0 0 0;
+.pokemonAbilities {
+  margin: 5px 0 0 0;
 }

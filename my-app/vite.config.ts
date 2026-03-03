@@ -30,6 +30,7 @@ export default defineConfig({
       '@features': path.resolve(__dirname, './src/features'),
       '@app': path.resolve(__dirname, './src/app'),
       '@src': path.resolve(__dirname, './src'),
+      '@services': path.resolve(__dirname, './src/services'),
     },
   },
 });

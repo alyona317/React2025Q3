@@ -5,8 +5,6 @@ import { PokemonCard1 } from '@components/PokemonCard/PokemonCard1';
 export const PokemonDetails = () => {
   const { name } = useParams();
 
-
-
   const {
     data: pokemonInfo,
     error,
@@ -25,7 +23,7 @@ export const PokemonDetails = () => {
 
   return (
     <div style={{ padding: '1rem' }}>
-<PokemonCard1 info={pokemonInfo} />
+      <PokemonCard1 info={pokemonInfo} />
     </div>
   );
 };
