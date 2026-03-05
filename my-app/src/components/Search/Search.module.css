@@ -52,3 +52,28 @@
   justify-content: center;
   width: 100%;
 }
+
+.inputContainer{
+position: relative;
+}
+.suggestionsList{
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  right: 100px;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+
+}
+.listItemSuggestions{
+cursor: pointer;
+}
+.listItemSuggestions:hover{
+background-color: var(--yellow-color);
+color: var(--btn-color-light);
+}

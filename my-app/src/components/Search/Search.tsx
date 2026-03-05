@@ -72,9 +72,10 @@ if (!data || !inputValue) {
         />
 
         {filterPokemons.length > 0 && (
-          <ul >
+          <ul className={styles.suggestionsList}>
             {filterPokemons.map((name) => (
               <li
+              className={styles.listItemSuggestions}
                 key={name}
                 onClick={() => {
                   setInputValue(name);

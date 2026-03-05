@@ -52,8 +52,7 @@ export const Homepage = () => {
           navigate(`/pokemon/${name}`);
         }}
       />
-      <div className="homepageContent">
-        <div>
+      <div >
           {loading && <p>Loading...</p>}
           {error && <p style={{ color: 'red' }}>{'Error loading data'}</p>}
 
@@ -81,7 +80,7 @@ export const Homepage = () => {
           ) : (
             allPokemons && <PokemonList pokemons={allPokemons.results} />
           )} */}
-        </div>
+
         {/* <div>
           <Outlet />
         </div> */}

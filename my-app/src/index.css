@@ -286,7 +286,7 @@ a {
 
 /* Когда есть выбранный покемон (Outlet не пустой) */
 .homepageContent:has(> div:last-child:not(:empty)) {
-  grid-template-columns: 1fr 400px; /* Левая часть, правая 400px */
+  grid-template-columns: 1fr 1fr; /* Левая часть, правая 400px */
 }
 
 /* Правая часть (Outlet) */
@@ -301,6 +301,11 @@ a {
 .homepageContent > div:last-child:not(:empty) {
   min-width: 400px;
   opacity: 1;
+}
+.rightPanel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PokemonCard an Details */

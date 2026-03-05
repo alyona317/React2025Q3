@@ -49,7 +49,7 @@ export const About = () => {
           >
             Hello, my name is Alyona. I'm junior frontend developer.I'm live in
             St. Petersburg. I like to travel, learn something new and
-            videogames. Maybe someday I will work on one of videgames.{' '}
+            videogames. Maybe someday I will work on one of videogames.{' '}
           </p>
           <h3 className={theme === 'light' ? 'textLight' : 'texDark'}>
             To learn more about React course
