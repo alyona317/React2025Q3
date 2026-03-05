@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
             src="https://brandeps.com/logo-download/P/Pokemon-logo-vector-01.svg"
             alt="Logo"
             className="nav__logo"
-            style={{ width: '50px' }}
+            style={{ width: '142px' }}
           />
         </Link>
         <div className="nav__List">

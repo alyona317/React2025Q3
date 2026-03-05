@@ -33,11 +33,12 @@
   background-color: var(--color-bg-dark);
 }
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   /* height: 100vh; */
   height: 100%;
   text-align: center;
+  width: 100%;
 }
 
 body {
@@ -51,11 +52,16 @@ body {
   transition: background-color 0.3s ease;
 }
 .layout {
+  width: 100%;
   min-width: 320px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+.wrapper {
+  padding: 0 30px;
+}
+
 .mainContent {
   flex: 1;
   padding: 2rem;
