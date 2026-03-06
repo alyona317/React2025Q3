@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type {
   NamedAPIResource,
@@ -5,7 +6,6 @@ import type {
   TypeEntry,
   AbilityEntry,
 } from '@customTypes/pokemon';
-import PokemonApiResponse from '@customTypes/pokemon';
 
 export const pokemonApi = createApi({
   reducerPath: 'pokemonApi',
@@ -18,7 +18,7 @@ export const pokemonApi = createApi({
     }),
     getPokemonByName: builder.query<PokemonInfo, string>({
       query: (name: string) => `pokemon/${name}`,
-      transformResponse: (response: PokemonApiResponse): PokemonInfo => {
+      transformResponse: (response: any): PokemonInfo => {
         return {
           name: response.name,
           number: response.id.toString().padStart(3, '0'),
