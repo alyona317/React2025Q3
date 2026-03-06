@@ -1,0 +1,92 @@
+/* light theme */
+.itemLight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px;
+  border-radius: 20px;
+  /* background-color: #3561AD; */
+  /* border: 2.5px solid #E21C25; */
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.itemLight:hover {
+  background-color: #ffcb08;
+}
+
+.checkboxLight {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid #e21c25;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.checkboxLight:checked {
+  background-color: #e21c25;
+  border-color: #e21c25;
+}
+
+.nameLight {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* dark theme */
+
+.itemDark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px;
+  border-radius: 20px;
+
+  color: #e0e0ff;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.itemDark:hover {
+  background-color: #0b4da2;
+}
+
+.checkboxDark {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+  border: 2.5px solid #ffcb08;
+  background-color: transparent;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.checkboxDark:checked {
+  background-color: #ffcb08;
+  border-color: #ffcb08;
+}
+
+.checkboxDark:checked::after {
+  border-color: #1e1e2f;
+}
+
+.nameDark {
+  color: #e0e0ff;
+  font-size: 1rem;
+  font-weight: 500;
+}

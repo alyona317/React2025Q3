@@ -1,0 +1,79 @@
+.buttonLight {
+  background-color: transparent;
+  color: var(--btn-color-light);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2.5px solid var(--yellow-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+.buttonDark {
+  /* background-color: var(--btn-bg-dark); */
+  color: var(--btn-color-dark);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.buttonLight:hover {
+  background-color: var(--yellow-color);
+  border: 2.5px solid var(--yellow-color);
+}
+.buttonDark:hover {
+  background-color: var(--btn-border-dark);
+}
+.button:focus {
+  outline: none;
+}
+.inputLight {
+  padding: 0.5rem;
+  border: 2.5px solid var(--yellow-color);
+  border-radius: 20px;
+  font-size: 1rem;
+  /* outline: 2.5px solid var(--red-color);  */
+}
+.inputLight:focus {
+  outline: 2.5px solid var(--red-color);
+  border: 2.5px solid transparent;
+}
+
+.inputContainer {
+  margin-bottom: 20px;
+
+  display: flex;
+
+  justify-content: center;
+  width: 100%;
+}
+
+.inputContainer{
+position: relative;
+}
+.suggestionsList{
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  right: 100px;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+
+}
+.listItemSuggestions{
+cursor: pointer;
+}
+.listItemSuggestions:hover{
+background-color: var(--yellow-color);
+color: var(--btn-color-light);
+}
