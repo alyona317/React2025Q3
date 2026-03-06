@@ -5,6 +5,7 @@ import type {
   TypeEntry,
   AbilityEntry,
 } from '@customTypes/pokemon';
+import PokemonApiResponse from '@customTypes/pokemon';
 
 export const pokemonApi = createApi({
   reducerPath: 'pokemonApi',
@@ -17,7 +18,7 @@ export const pokemonApi = createApi({
     }),
     getPokemonByName: builder.query<PokemonInfo, string>({
       query: (name: string) => `pokemon/${name}`,
-      transformResponse: (response: any): PokemonInfo => {
+      transformResponse: (response: PokemonApiResponse): PokemonInfo => {
         return {
           name: response.name,
           number: response.id.toString().padStart(3, '0'),

@@ -53,10 +53,10 @@
   width: 100%;
 }
 
-.inputContainer{
-position: relative;
+.inputContainer {
+  position: relative;
 }
-.suggestionsList{
+.suggestionsList {
   position: absolute;
   top: 100%;
   left: 0px;
@@ -68,12 +68,11 @@ position: relative;
   max-height: 200px;
   overflow-y: auto;
   z-index: 1000;
-
 }
-.listItemSuggestions{
-cursor: pointer;
+.listItemSuggestions {
+  cursor: pointer;
 }
-.listItemSuggestions:hover{
-background-color: var(--yellow-color);
-color: var(--btn-color-light);
+.listItemSuggestions:hover {
+  background-color: var(--yellow-color);
+  color: var(--btn-color-light);
 }
