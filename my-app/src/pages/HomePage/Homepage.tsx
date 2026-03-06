@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Search } from '@components/Search/Search';
-import { PokemonCard } from '@components/PokemonCard/PokemonCard';
+
 import { PokemonCard1 } from '@components/PokemonCard/PokemonCard1';
 import { PokemonList } from '@components/PokemonList/PokemonList';
-import { PokemonLoader } from '@components/PokemonLoader/PokemonLoader';
+
 import { useSearchWithStorage } from '@hooks/useSearchWithStorage';
 import {
   useGetAllPokemonsQuery,
@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from 'react';
 
 export const Homepage = () => {
-  const { searchTerm, setSearchTerm } = useSearchWithStorage();
+  const { searchTerm } = useSearchWithStorage();
   const [hasSelectedPokemon, setHasSelectedPokemon] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,8 +42,8 @@ export const Homepage = () => {
   const loading = isLoadingPokemon || isLoadingAll;
   const error = errorPokemon || errorAll;
 
-  const isSearchMode = !!searchTerm.trim();
-  const isListMode = !isSearchMode;
+
+ 
 
   return (
     <div className="homepageContainer">
@@ -52,30 +52,30 @@ export const Homepage = () => {
           navigate(`/pokemon/${name}`);
         }}
       />
-      <div >
-          {loading && <p>Loading...</p>}
-          {error && <p style={{ color: 'red' }}>{'Error loading data'}</p>}
+      <div>
+        {loading && <p>Loading...</p>}
+        {error && <p style={{ color: 'red' }}>{'Error loading data'}</p>}
 
-          {searchTerm.trim() && pokemonInfo && (
-            <div className="searchResult">
-              <PokemonCard1 info={pokemonInfo} />
+        {searchTerm.trim() && pokemonInfo && (
+          <div className="searchResult">
+            <PokemonCard1 info={pokemonInfo} />
+          </div>
+        )}
+
+        {!searchTerm.trim() && (
+          <div
+            className={`homepageContent ${hasSelectedPokemon ? 'with-card' : ''}`}
+          >
+            <div className="leftPanel">
+              {allPokemons && <PokemonList pokemons={allPokemons.results} />}
             </div>
-          )}
-
-          {!searchTerm.trim() && (
-            <div
-              className={`homepageContent ${hasSelectedPokemon ? 'with-card' : ''}`}
-            >
-              <div className="leftPanel">
-                {allPokemons && <PokemonList pokemons={allPokemons.results} />}
-              </div>
-              <div className="rightPanel">
-                <Outlet />
-              </div>
+            <div className="rightPanel">
+              <Outlet />
             </div>
-          )}
+          </div>
+        )}
 
-          {/* {pokemonInfo ? (
+        {/* {pokemonInfo ? (
             <PokemonCard1 info={pokemonInfo} />
           ) : (
             allPokemons && <PokemonList pokemons={allPokemons.results} />

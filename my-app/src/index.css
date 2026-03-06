@@ -308,7 +308,7 @@ a {
   min-width: 400px;
   opacity: 1;
 }
-.rightPanel{
+.rightPanel {
   display: flex;
   justify-content: center;
   align-items: center;

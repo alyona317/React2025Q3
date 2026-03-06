@@ -35,3 +35,32 @@ export interface TypeEntry {
 export interface AbilityEntry {
   ability: NamedAPIResource;
 }
+
+export interface PokemonApiResponse {
+  name: string;
+  id: number;
+  height: number;
+  weight: number;
+  base_experience: number;
+
+  sprites: {
+    front_default: string;
+    other: {
+      'official-artwork': {
+        front_default: string;
+      };
+    };
+  };
+
+  types: {
+    type: {
+      name: string;
+    };
+  }[];
+
+  abilities: {
+    ability: {
+      name: string;
+    };
+  }[];
+}

@@ -6,7 +6,6 @@ import { Welcome } from '@pages/Welcome/Welcome';
 import { Error } from '@pages/Error/Error';
 import { PokemonDetails } from '@components/PokemonDetails/PokemonDetails';
 import './App.css';
-import { PokemonCard1 } from '@components/PokemonCard/PokemonCard1';
 import { PokemonSearchResult } from '@components/SearchResult/PokemonSearchResult';
 
 export const App = () => {

@@ -7,7 +7,7 @@ import useSound from 'use-sound';
 import clickSound from '@src/assets/sound.mp3';
 
 export const Navbar: React.FC = () => {
-  const { searchTerm, setSearchTerm } = useSearchWithStorage();
+  const { setSearchTerm } = useSearchWithStorage();
   const { theme } = useTheme();
   const [play] = useSound(clickSound);
   return (
