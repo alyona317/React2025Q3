@@ -18,6 +18,13 @@
   --btn-bg-dark: #1e1e2f;
   --btn-color-dark: #e0e0ff;
   --btn-border-dark: #2c2c47;
+
+  --yellow-color: #ffcb08;
+  --blue-color-light: #3561ad;
+  --blue-color: #0b4da2;
+  --blue-color-dark: #07224e;
+  --white-color: #ffffff;
+  --red-color: #e21c25;
 }
 :root[data-theme='light'] {
   background-color: var(--color-bg-light);
@@ -25,15 +32,40 @@
 :root[data-theme='dark'] {
   background-color: var(--color-bg-dark);
 }
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* height: 100vh; */
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100%;
+  /* min-height: 100vh; */
   background-color: var(--color-bg-light);
   transition: background-color 0.3s ease;
+}
+.layout {
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.wrapper {
+  padding: 0 30px;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
 }
 :root[data-theme='dark'] body {
   background-color: var(--color-bg-dark);
@@ -67,14 +99,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 /* About */
@@ -213,7 +237,6 @@ button:focus-visible {
   justify-content: space-between;
   align-items: center;
   top: 0;
-  padding-top: 30px;
 }
 .nav__logo {
   width: 5em;
@@ -249,6 +272,46 @@ a {
 }
 .nav__link_dark:hover {
   color: #999e00;
+}
+
+/* Homepage */
+.homepageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.homepageContent {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Левая часть растягивается, правая - по контенту */
+  gap: 2rem;
+  transition: grid-template-columns 0.5s ease;
+  position: relative;
+}
+
+/* Когда есть выбранный покемон (Outlet не пустой) */
+.homepageContent:has(> div:last-child:not(:empty)) {
+  grid-template-columns: 1fr 1fr; /* Левая часть, правая 400px */
+}
+
+/* Правая часть (Outlet) */
+.homepageContent > div:last-child {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+/* Когда есть контент в Outlet */
+.homepageContent > div:last-child:not(:empty) {
+  min-width: 400px;
+  opacity: 1;
+}
+.rightPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PokemonCard an Details */
@@ -319,4 +382,94 @@ footer {
   color: #e0e0ff;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.cardContainer {
+  width: 253px;
+  height: 381px;
+  background-color: var(--blue-color-light);
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardInfo {
+  background-color: #dc0f0f;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cardImg {
+  height: 50%;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Картинка полностью вписывается в контейнер */
+  padding: 10px; /* Отступы внутри контейнера */
+}
+.cardDescription {
+  height: 50%;
+  width: 100%;
+  background-color: var(--yellow-color);
+  display: flex;
+  flex-direction: column;
+  color: #07224e;
+}
+.pokemonNumberContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--red-color);
+  color: #07224e;
+  padding: 10px;
+  border-radius: 50%;
+  width: 30px; /* Ширина = padding 10px * 2 + ширина числа 20px = 40px */
+  height: 30px; /* Высота такая же для круга */
+  display: flex; /* Для центрирования */
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center;
+}
+.pokemonNumber {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+.pokemonName {
+  font-size: larger;
+  font-weight: 800;
+  color: var(--blue-color-dark);
+  margin: 0;
+}
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 7px;
+}
+.pokemonTag {
+  background-color: var(--blue-color-light);
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: small;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.pokemonAbilities {
+  margin: 5px 0 0 0;
 }

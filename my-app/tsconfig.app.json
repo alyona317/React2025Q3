@@ -6,6 +6,9 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vitest/globals"],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
 
     "baseUrl": "src",
     "paths": {
@@ -14,9 +17,9 @@
       "@pages/*": ["pages/*"],
       "@customTypes/*": ["types/*"],
       "@features/*": ["features/*"],
-      "@app/*": ["app/*"]
+      "@app/*": ["app/*"],
+      "@services/*": ["services/*"]
     },
-  
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -34,5 +37,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
 }

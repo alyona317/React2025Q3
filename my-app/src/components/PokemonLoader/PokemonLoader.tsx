@@ -62,9 +62,15 @@ export const PokemonLoader: React.FC<PokemonLoaderProps> = ({
       if (!res.ok) throw new Error('Pokemon is not found');
 
       const data = await res.json();
+      const officialArtwork =
+        data.sprites.other['official-artwork']?.front_default;
+      const imageUrl = officialArtwork || data.sprites.front_default;
 
       const fullInfo: PokemonInfo = {
         sprite: data.sprites.front_default,
+        name: data.name,
+        number: data.id.toString().padStart(3, '0'),
+        imageUrl: imageUrl,
         types: data.types.map((t: TypeEntry) => t.type.name),
         height: data.height,
         weight: data.weight,
